@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PIS2020</string>
+    <string name="boto_entrar">Iniciar sesion</string>
+    <string name="boton_registrar">Registrarse</string>
 </resources>
