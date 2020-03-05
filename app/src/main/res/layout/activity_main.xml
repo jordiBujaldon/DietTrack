@@ -7,11 +7,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/colorBackground"
         tools:context=".MainActivity">
 
         <fragment
             android:id="@+id/navHostFragment"
-            android:name="com.example.pis2020.activities.fragments.MainFragment"
+            android:name="com.example.pis2020.activities.fragments.EnterFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"/>

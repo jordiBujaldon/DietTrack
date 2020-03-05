@@ -7,4 +7,5 @@
     <string name="menu_dietas">Dietas</string>
     <string name="menu_alimentos">Alimentos</string>
     <string name="menu_perfil">Perfil</string>
+    <string name="texto_iniciar_invitado">Iniciar como invitado</string>
 </resources>
