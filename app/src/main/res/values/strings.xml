@@ -7,5 +7,7 @@
     <string name="menu_dietas">Dietas</string>
     <string name="menu_alimentos">Alimentos</string>
     <string name="menu_perfil">Perfil</string>
-    <string name="texto_iniciar_invitado">Iniciar como invitado</string>
+    <string name="texto_iniciar_invitado">Saltar este paso e iniciar sesión como invitado</string>
+    <string name="mensaje_bienvenida">Bienvenido/a a DietTrack</string>
+    <string name="app_titulo">DietTrack</string>
 </resources>

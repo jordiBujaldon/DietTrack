@@ -13,5 +13,7 @@ class MainActivity : AppCompatActivity() {
         // Mostramos en pantalla el layout activity_main.xml
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(
             this, R.layout.activity_main)
+
+        binding.bottomNavigation.visibility = View.GONE
     }
 }
