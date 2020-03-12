@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    app:startDestination="@id/enterFragment">
+
+    <fragment
+        android:id="@+id/enterFragment"
+        android:name="com.example.pis2020.activities.fragments.EnterFragment"
+        android:label="EnterFragment" >
+        <action
+            android:id="@+id/action_enterFragment_to_registrarFragment"
+            app:destination="@id/registrarFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrarFragment"
+        android:name="com.example.pis2020.activities.fragments.RegistrarFragment"
+        android:label="RegistrarFragment" />
+</navigation>

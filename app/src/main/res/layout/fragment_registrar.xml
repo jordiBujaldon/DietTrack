@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titulo_registrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/texto_registrarse"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/outlinedNombreUsuario"
+            app:layout_constraintEnd_toStartOf="@+id/titulo_diettrack"
+            app:layout_constraintStart_toStartOf="@+id/outlinedNombreUsuario"
+            tools:text="Registrate a " />
+
+        <TextView
+            android:id="@+id/titulo_diettrack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/carter_one"
+            android:text="@string/app_titulo"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/titulo_registrar"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedNombreUsuario"
+            app:layout_constraintStart_toEndOf="@+id/titulo_registrar" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedNombreUsuario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nombre_usuario"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:errorEnabled="true"
+            app:errorTextColor="@android:color/holo_red_light"
+            app:layout_constraintBottom_toTopOf="@+id/outlinedContrasena"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedContrasena"
+            app:layout_constraintStart_toStartOf="@+id/outlinedContrasena">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputNombreUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedContrasena"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            android:hint="@string/hint_contrasena"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:errorEnabled="true"
+            app:errorTextColor="@android:color/holo_red_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.434">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedCorreoElectronico"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            android:hint="@string/hint_correo_electronico"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:errorEnabled="true"
+            app:errorTextColor="@android:color/holo_red_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedContrasena">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputCorreoElectronico"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/boton_registrar"
+            app:cornerRadius="@dimen/corner_button"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedCorreoElectronico"
+            app:layout_constraintStart_toStartOf="@+id/outlinedCorreoElectronico"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedCorreoElectronico" />
+
+        <TextView
+            android:id="@+id/texto_registrar_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/texto_registrarse_google"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/boton_registrar_google"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="monospace"
+            android:freezesText="false"
+            android:gravity="center"
+            android:text="@string/texto_google"
+            android:textAllCaps="true"
+            app:backgroundTint="@android:color/holo_red_light"
+            app:cornerRadius="@dimen/corner_button"
+            app:icon="@drawable/ic_google"
+            app:iconGravity="end"
+            app:iconPadding="0dp"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedCorreoElectronico"
+            app:layout_constraintStart_toStartOf="@+id/outlinedCorreoElectronico"
+            app:layout_constraintTop_toBottomOf="@+id/texto_registrar_google" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

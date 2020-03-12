@@ -7,14 +7,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".activities.MainActivity">
 
         <fragment
             android:id="@+id/navHostFragment"
-            android:name="com.example.pis2020.activities.fragments.EnterFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            app:navGraph="@navigation/navigation"
+            app:defaultNavHost="true"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"

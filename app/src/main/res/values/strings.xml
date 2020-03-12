@@ -2,6 +2,8 @@
     <string name="app_name">PIS2020</string>
     <string name="boto_entrar">Iniciar sesion</string>
     <string name="boton_registrar">Registrarse</string>
+    <string name="texto_registrarse">Registrate a </string>
+    <string name="texto_registrarse_google">O registrate con Google</string>
     <string name="menu_calendario">Calendario</string>
     <string name="menu_puntuacion">Puntuacion</string>
     <string name="menu_dietas">Dietas</string>
@@ -10,4 +12,8 @@
     <string name="texto_iniciar_invitado">Saltar este paso e iniciar sesión como invitado</string>
     <string name="mensaje_bienvenida">Bienvenido/a a DietTrack</string>
     <string name="app_titulo">DietTrack</string>
+    <string name="hint_nombre_usuario">Nombre de usuario</string>
+    <string name="hint_contrasena">Contraseña</string>
+    <string name="hint_correo_electronico">Correo electrónico</string>
+    <string name="texto_google">Google</string>
 </resources>
