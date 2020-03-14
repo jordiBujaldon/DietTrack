@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
 
 import com.example.pis2020.R
 import com.example.pis2020.databinding.FragmentEnterBinding
@@ -34,7 +34,9 @@ class EnterFragment : Fragment() {
         }
 
         binding.botonRegistrar.setOnClickListener {
-            findNavController().navigate(R.id.action_enterFragment_to_registrarFragment)
+            it.findNavController().navigate(
+                EnterFragmentDirections.actionEnterFragmentToRegistrarFragment()
+            )
         }
 
         return binding.root

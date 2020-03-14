@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_titulo_datos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="monospace"
+                android:text="@string/texto_titulo_datos_usuario"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/texto_fecha_nacimiento"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/texto_fecha_nacimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/texto_fecha_nacimiento"
+                android:textColor="@color/design_default_color_on_secondary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_titulo_datos" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_texto_fecha"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_fecha"
+                app:errorEnabled="true"
+                app:errorTextColor="@android:color/holo_red_dark"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/texto_fecha_nacimiento"
+                app:layout_constraintStart_toStartOf="@+id/texto_fecha_nacimiento"
+                app:layout_constraintTop_toBottomOf="@+id/texto_fecha_nacimiento">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="date" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/texto_altura_peso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/texto_peso_altura"
+                android:textColor="@color/design_default_color_on_secondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/layout_texto_fecha"
+                app:layout_constraintTop_toBottomOf="@+id/layout_texto_fecha" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_texto_peso"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_peso"
+                app:errorEnabled="true"
+                app:errorTextColor="@android:color/holo_red_dark"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/layout_texto_fecha"
+                app:layout_constraintStart_toEndOf="@+id/layout_texto_altura"
+                app:layout_constraintTop_toBottomOf="@+id/texto_altura_peso">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_texto_altura"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:hint="@string/hint_altura"
+                app:errorEnabled="true"
+                app:errorTextColor="@android:color/holo_red_dark"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toStartOf="@+id/layout_texto_peso"
+                app:layout_constraintStart_toStartOf="@+id/texto_altura_peso"
+                app:layout_constraintTop_toBottomOf="@+id/texto_altura_peso">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/texto_tipo_actividad"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="@+id/texto_altura_peso"
+                app:layout_constraintTop_toBottomOf="@+id/layout_texto_altura" />
+
+            <RadioGroup
+                android:id="@+id/grupo_radio_buttons_actividad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                <RadioButton
+                    android:id="@+id/radio_button_actividad_muy_leve"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/texto_rb_actividad_muy_leve" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_activadad_leve"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/texto_rb_actividad_leve" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_actividad_moderada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/texto_rb_actividad_moderada" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_actividad_intensa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/texto_rb_actividad_intensa" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_actividad_excepcional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/texto_rb_actividad_excepcional" />
+
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:id="@+id/boton_cancelar_datos_usuarios"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/texto_cancelar"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/grupo_radio_buttons_actividad"
+                app:layout_constraintTop_toBottomOf="@+id/grupo_radio_buttons_actividad" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/boton_continuar_datos_usuarios"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:text="@string/texto_continuar"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/boton_cancelar_datos_usuarios"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

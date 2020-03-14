@@ -106,7 +106,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton"
+            android:id="@+id/boton_registrar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/boton_registrar"
@@ -125,7 +125,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialButton" />
+            app:layout_constraintTop_toBottomOf="@+id/boton_registrar" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/boton_registrar_google"
@@ -145,6 +145,18 @@
             app:layout_constraintEnd_toEndOf="@+id/outlinedCorreoElectronico"
             app:layout_constraintStart_toStartOf="@+id/outlinedCorreoElectronico"
             app:layout_constraintTop_toBottomOf="@+id/texto_registrar_google" />
+
+        <ImageView
+            android:id="@+id/boton_atras_registrarse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/content_boton_atras"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_back" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

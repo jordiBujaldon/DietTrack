@@ -18,5 +18,31 @@
     <fragment
         android:id="@+id/registrarFragment"
         android:name="com.example.pis2020.activities.fragments.RegistrarFragment"
-        android:label="RegistrarFragment" />
+        android:label="RegistrarFragment" >
+        <action
+            android:id="@+id/action_registrarFragment_to_datosUsuarioFragment"
+            app:destination="@id/datosUsuarioFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/enterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/datosUsuarioFragment"
+        android:name="com.example.pis2020.activities.fragments.DatosUsuarioFragment"
+        android:label="DatosUsuarioFragment" >
+        <action
+            android:id="@+id/action_datosUsuarioFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_datosUsuarioFragment_to_registrarFragment"
+            app:destination="@id/registrarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.pis2020.activities.fragments.MainFragment"
+        android:label="MainFragment" />
+
 </navigation>

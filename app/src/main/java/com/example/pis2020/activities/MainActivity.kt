@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.get
 import com.example.pis2020.R
 import com.example.pis2020.databinding.ActivityMainBinding
 
@@ -16,6 +18,12 @@ class MainActivity : AppCompatActivity() {
             this, R.layout.activity_main
         )
 
+        val navController = findNavController(R.id.navHostFragment)
+
         binding.bottomNavigation.visibility = View.GONE
+
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+
+        }
     }
 }

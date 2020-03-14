@@ -8,16 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 
 import com.example.pis2020.R
-import com.example.pis2020.databinding.FragmentRegistrarBinding
+import com.example.pis2020.databinding.FragmentDatosUsuarioBinding
 
 /**
  * A simple [Fragment] subclass.
  */
-class RegistrarFragment : Fragment() {
+class DatosUsuarioFragment : Fragment() {
 
-    private lateinit var binding: FragmentRegistrarBinding
+    private lateinit var binding: FragmentDatosUsuarioBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +26,7 @@ class RegistrarFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_registrar,
+            R.layout.fragment_datos_usuario,
             container,
             false
         )
@@ -36,18 +37,14 @@ class RegistrarFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        binding.botonAtrasRegistrarse.setOnClickListener {
-            activity?.onBackPressed()
+        binding.botonCancelarDatosUsuarios.setOnClickListener {
+            findNavController().popBackStack()
         }
 
-        binding.botonRegistrar.setOnClickListener {
-            it.findNavController().navigate(
-                RegistrarFragmentDirections.actionRegistrarFragmentToDatosUsuarioFragment()
+        binding.botonContinuarDatosUsuarios.setOnClickListener {
+            findNavController().navigate(
+                DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToMainFragment()
             )
-        }
-
-        binding.botonRegistrarGoogle.setOnClickListener {
-            // TODO
         }
     }
 }
