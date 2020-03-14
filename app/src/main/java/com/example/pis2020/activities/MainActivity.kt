@@ -20,10 +20,12 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.navHostFragment)
 
-        binding.bottomNavigation.visibility = View.GONE
-
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-
+            if (destination.id == R.id.mainFragment) {
+                binding.bottomNavigation.visibility = View.VISIBLE
+            } else {
+                binding.bottomNavigation.visibility = View.GONE
+            }
         }
     }
 }
