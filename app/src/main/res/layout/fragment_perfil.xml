@@ -5,15 +5,12 @@
     android:layout_height="match_parent"
 
 
-    android:background="@drawable/fondoperfill"
-    android:orientation="vertical"
-
-
-    >
+    android:background="@drawable/corvaperfil3"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="460dp"
         android:layout_marginBottom="60dp"
         android:background="@drawable/corvaperfil2"
 
@@ -22,7 +19,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="375dp"
+            android:layout_height="330dp"
             android:background="@drawable/corvaperfil"
             android:orientation="vertical"
 
@@ -43,11 +40,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/al_veshion_personaluseonly"
                 android:text="Jack Connor"
                 android:textAlignment="center"
                 android:textColor="#448333"
                 android:textSize="30dp"
                 android:textStyle="bold"
+
 
                 />
 
@@ -77,22 +76,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/piledrivewalts"
                 android:text="68Kg"
                 android:textAlignment="center"
-                android:textSize="40dp"
+                android:textColor="#E8111010"
 
-                />
+                android:textSize="40dp" />
 
             <TextView
                 android:id="@+id/altura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/piledrivewalts"
                 android:text="1.78cm"
                 android:textAlignment="center"
-                android:textSize="40dp"
+                android:textColor="#F00A0A0A"
 
-                />
+
+                android:textSize="40dp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -100,17 +102,23 @@
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_call" />
+        android:layout_height="40dp"
+        app:srcCompat="@android:drawable/ic_menu_call"
+
+
+        />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
+        android:fontFamily="@font/regina_script_"
         android:text="678231321"
+        android:textAlignment="center"
+        android:textSize="40dp"
 
-        android:textAlignment="center" />
+        />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -124,18 +132,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-
+        android:fontFamily="@font/comichelvetic_light"
 
         android:text="jackconnor@gmail.com"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="25dp"
+
+        />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="175dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/btnperfil_estil"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btnperfil_estil"
+
         android:text="SALIR" />
 
 </LinearLayout>
