@@ -2,14 +2,15 @@ package com.example.pis2020.activities.fragments
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
-
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.pis2020.R
 import com.example.pis2020.databinding.FragmentMainBinding
+import java.util.*
+
 
 /**
  * A simple [Fragment] subclass.
@@ -27,8 +28,9 @@ class MainFragment : Fragment() {
             false
         )
 
+        setHasOptionsMenu(true)
+
         return binding.root
     }
-
 
 }

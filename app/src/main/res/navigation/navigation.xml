@@ -46,5 +46,9 @@
         android:id="@+id/mainFragment"
         android:name="com.example.pis2020.activities.fragments.MainFragment"
         android:label="MainFragment" />
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.pis2020.activities.fragments.PerfilFragment"
+        android:label="PerfilFragment" />
 
 </navigation>
