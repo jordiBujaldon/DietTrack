@@ -1,153 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-
-    android:background="@drawable/corvaperfil3"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="460dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/corvaperfil2"
+        android:layout_height="match_parent"
 
+
+        android:background="@drawable/corvaperfil3"
         android:orientation="vertical">
 
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="330dp"
-            android:background="@drawable/corvaperfil"
-            android:orientation="vertical"
+            android:layout_height="460dp"
+            android:layout_marginBottom="60dp"
+            android:background="@drawable/corvaperfil2"
+
+            android:orientation="vertical">
 
 
-            >
-
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                app:srcCompat="@drawable/perfilusuario" />
-
-            <TextView
-                android:id="@+id/textView"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/al_veshion_personaluseonly"
-                android:text="Jack Connor"
-                android:textAlignment="center"
-                android:textColor="#448333"
-                android:textSize="30dp"
-                android:textStyle="bold"
+                android:layout_height="330dp"
+                android:background="@drawable/corvaperfil"
+                android:orientation="vertical"
 
 
-                />
+                >
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="175dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    app:srcCompat="@drawable/perfilusuario" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/al_veshion_personaluseonly"
+                    android:text="Jack Connor"
+                    android:textAlignment="center"
+                    android:textColor="#448333"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+
+
+                    />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/btnperfil_estil"
+
+                    android:text="CAMBIAR IMAGEN"
+
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/btnperfil_estil"
+                android:orientation="horizontal">
 
-                android:text="CAMBIAR IMAGEN"
+                <TextView
+                    android:id="@+id/pes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/piledrivewalts"
+                    android:text="68Kg"
+                    android:textAlignment="center"
+                    android:textColor="#E8111010"
+
+                    android:textSize="40dp" />
+
+                <TextView
+                    android:id="@+id/altura"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/piledrivewalts"
+                    android:text="1.78cm"
+                    android:textAlignment="center"
+                    android:textColor="#F00A0A0A"
 
 
-                />
+                    android:textSize="40dp" />
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageView6"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/pes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/piledrivewalts"
-                android:text="68Kg"
-                android:textAlignment="center"
-                android:textColor="#E8111010"
-
-                android:textSize="40dp" />
-
-            <TextView
-                android:id="@+id/altura"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/piledrivewalts"
-                android:text="1.78cm"
-                android:textAlignment="center"
-                android:textColor="#F00A0A0A"
+            android:layout_height="40dp"
+            app:srcCompat="@android:drawable/ic_menu_call"
 
 
-                android:textSize="40dp" />
-        </LinearLayout>
+            />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/regina_script_"
+            android:text="678231321"
+            android:textAlignment="center"
+            android:textSize="40dp"
+
+            />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/ic_dialog_email" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/comichelvetic_light"
+
+            android:text="jackconnor@gmail.com"
+            android:textAlignment="center"
+            android:textSize="25dp"
+
+            />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btnperfil_estil"
+
+            android:text="SALIR" />
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:srcCompat="@android:drawable/ic_menu_call"
-
-
-        />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:fontFamily="@font/regina_script_"
-        android:text="678231321"
-        android:textAlignment="center"
-        android:textSize="40dp"
-
-        />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/comichelvetic_light"
-
-        android:text="jackconnor@gmail.com"
-        android:textAlignment="center"
-        android:textSize="25dp"
-
-        />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btnperfil_estil"
-
-        android:text="SALIR" />
-
-</LinearLayout>
+</layout>

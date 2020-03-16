@@ -35,14 +35,20 @@
         <action
             android:id="@+id/action_datosUsuarioFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popUpToInclusive="false" />
-        <action
-            android:id="@+id/action_datosUsuarioFragment_to_registrarFragment"
-            app:destination="@id/registrarFragment" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/enterFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.pis2020.activities.fragments.MainFragment"
         android:label="MainFragment" />
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.pis2020.activities.fragments.PerfilFragment"
+        android:label="PerfilFragment" />
 
 </navigation>
