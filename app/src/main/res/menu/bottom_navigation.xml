@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navCalendario"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/menu_calendario" />
+    <item
+        android:id="@+id/navPuntuacion"
+        android:icon="@drawable/ic_puntuacion"
+        android:title="@string/menu_puntuacion" />
+    <item
+        android:id="@+id/navDietas"
+        android:icon="@drawable/ic_diet"
+        android:title="@string/menu_dietas" />
+    <item
+        android:id="@+id/navAlimentos"
+        android:icon="@drawable/ic_food"
+        android:title="@string/menu_alimentos" />
+    <item
+        android:id="@+id/navPerfil"
+        android:icon="@drawable/ic_user"
+        android:title="@string/menu_perfil" />
+</menu>

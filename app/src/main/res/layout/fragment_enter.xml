@@ -4,29 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        tools:context=".activities.fragments.EnterFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".activities.fragments.EnterFragment">
 
-        <Button
-            android:id="@+id/botonIniciarSesion"
+        <TextView
+            android:id="@+id/tituloApp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/carter_one"
+            android:text="@string/app_titulo"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/mensajeBienvenida"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/mensajeBienvenida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/mensaje_bienvenida"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/botonIniciarSesion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/botonIniciarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:layout_marginStart="@dimen/magin_enter_buttons"
+            android:layout_marginLeft="@dimen/magin_enter_buttons"
+            android:layout_marginEnd="@dimen/magin_enter_buttons"
+            android:layout_marginRight="@dimen/magin_enter_buttons"
             android:text="@string/boto_entrar"
+            app:cornerRadius="@dimen/corner_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.534" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/botonRegistrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
             android:text="@string/boton_registrar"
+            android:textColor="@color/colorPrimary"
+            app:backgroundTint="@android:color/white"
+            app:cornerRadius="@dimen/corner_button"
             app:layout_constraintEnd_toEndOf="@+id/botonIniciarSesion"
             app:layout_constraintStart_toStartOf="@+id/botonIniciarSesion"
-            app:layout_constraintTop_toBottomOf="@+id/botonIniciarSesion" />
+            app:layout_constraintTop_toBottomOf="@+id/botonIniciarSesion"
+            app:strokeColor="@color/colorPrimary"
+            app:strokeWidth="2dp" />
+
+        <TextView
+            android:id="@+id/textoIniciarInvitado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/texto_iniciar_invitado"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

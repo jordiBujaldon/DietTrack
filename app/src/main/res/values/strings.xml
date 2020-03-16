@@ -2,7 +2,33 @@
     <string name="app_name">PIS2020</string>
     <string name="boto_entrar">Iniciar sesion</string>
     <string name="boton_registrar">Registrarse</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="texto_registrarse">Registrate a </string>
+    <string name="texto_registrarse_google">O registrate con Google</string>
+    <string name="menu_calendario">Calendario</string>
+    <string name="menu_puntuacion">Puntuacion</string>
+    <string name="menu_dietas">Dietas</string>
+    <string name="menu_alimentos">Alimentos</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="texto_iniciar_invitado">Saltar este paso e iniciar sesión como invitado</string>
+    <string name="mensaje_bienvenida">Bienvenido/a a DietTrack</string>
+    <string name="app_titulo">DietTrack</string>
+    <string name="hint_nombre_usuario">Nombre de usuario</string>
+    <string name="hint_contrasena">Contraseña</string>
+    <string name="hint_correo_electronico">Correo electrónico</string>
+    <string name="texto_google">Google</string>
+    <string name="content_boton_atras">Atras</string>
+    <string name="texto_fecha_nacimiento">Introduce tu fecha de nacimiento:</string>
+    <string name="texto_peso_altura">Introduce tu altura y tu peso:</string>
+    <string name="hint_fecha">dd/mm/aaaa</string>
+    <string name="hint_altura">Altura (m)</string>
+    <string name="hint_peso">Peso (kg)</string>
+    <string name="texto_tipo_actividad">Tipo de activadad semanal:</string>
+    <string name="texto_rb_actividad_muy_leve">Muy leve</string>
+    <string name="texto_rb_actividad_leve">Leve</string>
+    <string name="texto_rb_actividad_moderada">Moderada</string>
+    <string name="texto_rb_actividad_intensa">Intensa</string>
+    <string name="texto_rb_actividad_excepcional">Excepcional</string>
+    <string name="texto_titulo_datos_usuario">Datos del usuario</string>
+    <string name="texto_cancelar">Cancelar</string>
+    <string name="texto_continuar">Continuar</string>
 </resources>

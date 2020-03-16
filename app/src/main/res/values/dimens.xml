@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="corner_button">20dp</dimen>
+    <dimen name="magin_enter_buttons">48dp</dimen>
+    <dimen name="texto_desde_top">96dp</dimen>
+</resources>

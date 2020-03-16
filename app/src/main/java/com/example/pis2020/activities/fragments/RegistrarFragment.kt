@@ -10,36 +10,44 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 
 import com.example.pis2020.R
-import com.example.pis2020.databinding.FragmentEnterBinding
+import com.example.pis2020.databinding.FragmentRegistrarBinding
 
 /**
  * A simple [Fragment] subclass.
  */
-class EnterFragment : Fragment() {
+class RegistrarFragment : Fragment() {
+
+    private lateinit var binding: FragmentRegistrarBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Variable que hace referencia a todas las Views de fragment_enter.xml
-        val binding: FragmentEnterBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_enter,
+            R.layout.fragment_registrar,
             container,
             false
         )
 
-        binding.botonIniciarSesion.setOnClickListener {
-            // TODO: Implementar la navegacion del boton
+        return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        binding.botonAtrasRegistrarse.setOnClickListener {
+            activity?.onBackPressed()
         }
 
         binding.botonRegistrar.setOnClickListener {
             it.findNavController().navigate(
-                EnterFragmentDirections.actionEnterFragmentToRegistrarFragment()
+                RegistrarFragmentDirections.actionRegistrarFragmentToDatosUsuarioFragment()
             )
         }
 
-        return binding.root
+        binding.botonRegistrarGoogle.setOnClickListener {
+            // TODO
+        }
     }
-
 }
