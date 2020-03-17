@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.mainFragment -> NavigationUI.onNavDestinationSelected(item, navController )
+                R.id.mainFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 R.id.perfilFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 else -> false
             }

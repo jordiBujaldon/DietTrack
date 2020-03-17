@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.pis2020.R
+import com.example.pis2020.activities.utils.adapters.CalendarioAdapter
+import com.example.pis2020.activities.utils.getCalendarioDiasSemana
+import com.example.pis2020.activities.utils.getCalendarioNumerosMes
 import com.example.pis2020.databinding.FragmentMainBinding
 import java.util.*
 
@@ -28,7 +31,13 @@ class MainFragment : Fragment() {
             false
         )
 
-        setHasOptionsMenu(true)
+        val calendario = Calendar.getInstance()
+        val adapter = CalendarioAdapter()
+
+        binding.calendario.adapter = adapter
+
+        adapter.dataDias = getCalendarioDiasSemana(calendario)
+        adapter.dataNumeros = getCalendarioNumerosMes(calendario)
 
         return binding.root
     }
