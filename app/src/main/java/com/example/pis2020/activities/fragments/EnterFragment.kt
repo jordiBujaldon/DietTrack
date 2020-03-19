@@ -30,7 +30,9 @@ class EnterFragment : Fragment() {
         )
 
         binding.botonIniciarSesion.setOnClickListener {
-            // TODO: Implementar la navegacion del boton
+            it.findNavController().navigate(
+                EnterFragmentDirections.actionEnterFragmentToSigninFragment()
+            )
         }
 
         binding.botonRegistrar.setOnClickListener {

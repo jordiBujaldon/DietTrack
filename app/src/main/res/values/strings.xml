@@ -31,4 +31,5 @@
     <string name="texto_titulo_datos_usuario">Datos del usuario</string>
     <string name="texto_cancelar">Cancelar</string>
     <string name="texto_continuar">Continuar</string>
+    <string name="texto_iniciar_sesion_google">O iniciar sesión con Google</string>
 </resources>

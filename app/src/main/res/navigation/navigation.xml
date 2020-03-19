@@ -14,6 +14,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_enterFragment_to_signinFragment"
+            app:destination="@id/signinFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/registrarFragment"
@@ -50,5 +57,19 @@
         android:id="@+id/perfilFragment"
         android:name="com.example.pis2020.activities.fragments.PerfilFragment"
         android:label="PerfilFragment" />
+    <fragment
+        android:id="@+id/signinFragment"
+        android:name="com.example.pis2020.activities.fragments.SigninFragment"
+        android:label="SigninFragment" >
+        <action
+            android:id="@+id/action_signinFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/enterFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>
