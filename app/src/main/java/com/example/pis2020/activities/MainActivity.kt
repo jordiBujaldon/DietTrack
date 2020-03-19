@@ -23,7 +23,9 @@ class MainActivity : AppCompatActivity() {
 
         // Muestra el menu de navegacion si el destino esta en un fragment que lo permita
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            if (destination.id == R.id.mainFragment || destination.id == R.id.perfilFragment) {
+            if (destination.id == R.id.mainFragment
+                || destination.id == R.id.perfilFragment
+                || destination.id == R.id.alimentosFragment) {
                 binding.bottomNavigation.visibility = View.VISIBLE
             } else {
                 binding.bottomNavigation.visibility = View.GONE
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.mainFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 R.id.perfilFragment -> NavigationUI.onNavDestinationSelected(item, navController)
+                R.id.alimentosFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 else -> false
             }
         }

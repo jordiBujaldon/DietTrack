@@ -71,5 +71,9 @@
             app:popUpTo="@+id/enterFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/alimentosFragment"
+        android:name="com.example.pis2020.activities.fragments.AlimentosFragment"
+        android:label="AlimentosFragment" />
 
 </navigation>
