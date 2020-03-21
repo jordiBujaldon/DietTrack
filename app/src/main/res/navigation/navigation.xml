@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
     app:startDestination="@id/enterFragment">
 
     <fragment
@@ -79,5 +80,9 @@
         android:id="@+id/puntuacionFragment"
         android:name="com.example.pis2020.activities.fragments.PuntuacionFragment"
         android:label="PuntuacionFragment" />
+    <fragment
+        android:id="@+id/dietasFragment"
+        android:name="com.example.pis2020.activities.fragments.DietListFragment"
+        android:label="DietasFragment" />
 
 </navigation>

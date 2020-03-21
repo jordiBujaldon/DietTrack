@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity() {
             if (destination.id == R.id.mainFragment
                 || destination.id == R.id.perfilFragment
                 || destination.id == R.id.alimentosFragment
-                || destination.id == R.id.puntuacionFragment) {
+                || destination.id == R.id.puntuacionFragment
+                || destination.id == R.id.dietasFragment) {
                 binding.bottomNavigation.visibility = View.VISIBLE
             } else {
                 binding.bottomNavigation.visibility = View.GONE
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.perfilFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 R.id.alimentosFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 R.id.puntuacionFragment -> NavigationUI.onNavDestinationSelected(item, navController)
+                R.id.dietasFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 else -> false
             }
         }
