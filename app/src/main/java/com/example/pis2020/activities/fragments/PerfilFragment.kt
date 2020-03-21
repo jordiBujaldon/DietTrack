@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 
 import com.example.pis2020.R
+import com.example.pis2020.databinding.FragmentPerfilBinding
+
 //import com.example.pis2020.databinding.FragmentPerfilB
 
 /**
@@ -20,7 +22,7 @@ class PerfilFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /*
+
         val binding: FragmentPerfilBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_perfil,
@@ -29,11 +31,6 @@ class PerfilFragment : Fragment() {
         )
 
         return binding.root
-
-         */
-        return null
     }
-
-
-
+    
 }
