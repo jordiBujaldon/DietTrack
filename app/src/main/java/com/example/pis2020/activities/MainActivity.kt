@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.navHostFragment)
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            if (destination.id == R.id.mainFragment || destination.id == R.id.perfilFragment) {
+            if (destination.id == R.id.mainFragment || destination.id == R.id.perfilFragment || destination.id == R.id.dietasFragment) {
                 binding.bottomNavigation.visibility = View.VISIBLE
             } else {
                 binding.bottomNavigation.visibility = View.GONE
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.mainFragment -> NavigationUI.onNavDestinationSelected(item, navController )
                 R.id.perfilFragment -> NavigationUI.onNavDestinationSelected(item, navController)
+                R.id.dietasFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 else -> false
             }
         }
