@@ -33,4 +33,5 @@
     <string name="texto_continuar">Continuar</string>
     <string name="texto_iniciar_sesion_google">O iniciar sesión con Google</string>
     <string name="alimentos_escaneados">Alimentos escaneados</string>
+    <string name="diet_list_text">Lista de dietas</string>
 </resources>
