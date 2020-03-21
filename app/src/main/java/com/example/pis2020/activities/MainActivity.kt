@@ -25,7 +25,8 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             if (destination.id == R.id.mainFragment
                 || destination.id == R.id.perfilFragment
-                || destination.id == R.id.alimentosFragment) {
+                || destination.id == R.id.alimentosFragment
+                || destination.id == R.id.puntuacionFragment) {
                 binding.bottomNavigation.visibility = View.VISIBLE
             } else {
                 binding.bottomNavigation.visibility = View.GONE
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.mainFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 R.id.perfilFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 R.id.alimentosFragment -> NavigationUI.onNavDestinationSelected(item, navController)
+                R.id.puntuacionFragment -> NavigationUI.onNavDestinationSelected(item, navController)
                 else -> false
             }
         }
