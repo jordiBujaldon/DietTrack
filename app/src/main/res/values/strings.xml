@@ -31,4 +31,17 @@
     <string name="texto_titulo_datos_usuario">Datos del usuario</string>
     <string name="texto_cancelar">Cancelar</string>
     <string name="texto_continuar">Continuar</string>
+    <string name="cola_cao">Cola Cao</string>
+    <string name="colacao_el_original">ColaCao El Original</string>
+    <string name="_30_100">30/100</string>
+    <string name="mediocre">Mediocre</string>
+    <string name="positivo">Positivo</string>
+    <string name="cada_100_g">Cada 100 g</string>
+    <string name="sal">Sal</string>
+    <string name="_0_12_g">0,12 g</string>
+    <string name="grasas_saturadas">Grasas saturadas</string>
+    <string name="_1_1_g">1,1 g</string>
+    <string name="porteinas">Porteinas</string>
+    <string name="proteinas">Proteinas</string>
+    <string name="_3_4_g">3,4 g</string>
 </resources>
