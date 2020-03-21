@@ -73,30 +73,23 @@
                 android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/pes"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/piledrivewalts"
-                    android:text="68Kg"
-                    android:textAlignment="center"
-                    android:textColor="#E8111010"
+                    android:ems="10"
+                    android:hint="Peso(Kg)"
+                    android:inputType="textPersonName" />
 
-                    android:textSize="40dp" />
-
-                <TextView
-                    android:id="@+id/altura"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/piledrivewalts"
-                    android:text="1.78cm"
-                    android:textAlignment="center"
-                    android:textColor="#F00A0A0A"
-
-
-                    android:textSize="40dp" />
+                    android:ems="10"
+                    android:hint="Altura(cm)"
+                    android:inputType="textPersonName" />
             </LinearLayout>
 
         </LinearLayout>
@@ -110,17 +103,13 @@
 
             />
 
-        <TextView
-            android:id="@+id/textView12"
+        <EditText
+            android:id="@+id/editText3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:fontFamily="@font/regina_script_"
-            android:text="678231321"
-            android:textAlignment="center"
-            android:textSize="40dp"
-
-            />
+            android:ems="10"
+            android:hint="Teléfono"
+            android:inputType="textPersonName" />
 
         <ImageView
             android:id="@+id/imageView9"
@@ -128,29 +117,13 @@
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/ic_dialog_email" />
 
-        <TextView
-            android:id="@+id/textView11"
+        <EditText
+            android:id="@+id/editText4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/comichelvetic_light"
-
-            android:text="jackconnor@gmail.com"
-            android:textAlignment="center"
-            android:textSize="25dp"
-
-            />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/btnperfil_estil"
-
-            android:text="SALIR" />
+            android:ems="10"
+            android:hint="Correo Electrónico"
+            android:inputType="textPersonName" />
 
     </LinearLayout>
 </layout>
