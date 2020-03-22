@@ -12,6 +12,9 @@ import com.example.pis2020.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        setTheme(R.style.Theme_DietTrack)
+
         super.onCreate(savedInstanceState)
         // Mostramos en pantalla el layout activity_main.xml
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(
