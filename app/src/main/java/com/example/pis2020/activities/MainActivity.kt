@@ -36,14 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         // Cada vez que el usuario cambie de navegacion con el menu, cambiamos de fragment
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.mainFragment -> NavigationUI.onNavDestinationSelected(item, navController)
-                R.id.perfilFragment -> NavigationUI.onNavDestinationSelected(item, navController)
-                R.id.alimentosFragment -> NavigationUI.onNavDestinationSelected(item, navController)
-                R.id.puntuacionFragment -> NavigationUI.onNavDestinationSelected(item, navController)
-                R.id.dietasFragment -> NavigationUI.onNavDestinationSelected(item, navController)
-                else -> false
-            }
+            NavigationUI.onNavDestinationSelected(item, navController)
         }
 
     }
