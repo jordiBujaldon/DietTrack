@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 
 import com.example.pis2020.R
 import com.example.pis2020.databinding.FragmentAlimentosBinding
@@ -23,6 +24,12 @@ class AlimentosFragment : Fragment() {
             container,
             false
         )
+
+        binding.botonEscaner.setOnClickListener {
+            findNavController().navigate(
+                AlimentosFragmentDirections.actionAlimentosFragmentToCameraFragment22()
+            )
+        }
 
         return binding.root
     }

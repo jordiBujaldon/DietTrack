@@ -75,7 +75,11 @@
     <fragment
         android:id="@+id/alimentosFragment"
         android:name="com.example.pis2020.activities.fragments.AlimentosFragment"
-        android:label="AlimentosFragment" />
+        android:label="AlimentosFragment" >
+        <action
+            android:id="@+id/action_alimentosFragment_to_cameraFragment22"
+            app:destination="@id/cameraFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/puntuacionFragment"
         android:name="com.example.pis2020.activities.fragments.PuntuacionFragment"
@@ -84,5 +88,9 @@
         android:id="@+id/dietasFragment"
         android:name="com.example.pis2020.activities.fragments.DietListFragment"
         android:label="DietasFragment" />
+    <fragment
+        android:id="@+id/cameraFragment2"
+        android:name="com.example.pis2020.activities.fragments.CameraFragment"
+        android:label="CameraFragment" />
 
 </navigation>
