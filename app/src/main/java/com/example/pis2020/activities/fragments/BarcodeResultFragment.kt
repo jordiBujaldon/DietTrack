@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.pis2020.ia.barcodescanner
+package com.example.pis2020.activities.fragments
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -22,12 +22,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.pis2020.R
+
+import com.example.pis2020.databinding.BarcodeFieldBinding
+import com.example.pis2020.ia.barcodescanner.BarcodeField
 import com.example.pis2020.ia.camera.WorkflowModel
+
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 /** Displays the bottom sheet to present barcode fields contained in the detected barcode.  */
@@ -38,7 +40,7 @@ class BarcodeResultFragment : BottomSheetDialogFragment() {
         viewGroup: ViewGroup?,
         bundle: Bundle?
     ): View {
-        val view = layoutInflater.inflate(R.layout.barcode_bottom_sheet, viewGroup)
+        val binding = BarcodeFieldBinding.inflate(layoutInflater, viewGroup, false)
 
         val arguments = arguments
         val barcodeFieldList: ArrayList<BarcodeField> =
@@ -49,13 +51,9 @@ class BarcodeResultFragment : BottomSheetDialogFragment() {
                     ArrayList()
                 }
 
-        view.findViewById<RecyclerView>(R.id.barcode_field_recycler_view).apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(activity)
-            adapter = BarcodeFieldAdapter(barcodeFieldList)
-        }
+        binding.barcodeFieldValue.text = barcodeFieldList[0].value
 
-        return view
+        return binding.root
     }
 
     override fun onDismiss(dialogInterface: DialogInterface) {
@@ -73,11 +71,14 @@ class BarcodeResultFragment : BottomSheetDialogFragment() {
         private const val ARG_BARCODE_FIELD_LIST = "arg_barcode_field_list"
 
         fun show(fragmentManager: FragmentManager, barcodeFieldArrayList: ArrayList<BarcodeField>) {
-            val barcodeResultFragment = BarcodeResultFragment()
+            val barcodeResultFragment =
+                BarcodeResultFragment()
             barcodeResultFragment.arguments = Bundle().apply {
                 putParcelableArrayList(ARG_BARCODE_FIELD_LIST, barcodeFieldArrayList)
             }
-            barcodeResultFragment.show(fragmentManager, TAG)
+            barcodeResultFragment.show(fragmentManager,
+                TAG
+            )
         }
 
         fun dismiss(fragmentManager: FragmentManager) {
