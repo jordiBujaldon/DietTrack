@@ -79,6 +79,10 @@
         <action
             android:id="@+id/action_alimentosFragment_to_cameraFragment22"
             app:destination="@id/cameraFragment2" />
+        <argument android:name="barcode"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/puntuacionFragment"
@@ -91,6 +95,10 @@
     <fragment
         android:id="@+id/cameraFragment2"
         android:name="com.example.pis2020.activities.fragments.CameraFragment"
-        android:label="CameraFragment" />
+        android:label="CameraFragment" >
+        <action
+            android:id="@+id/action_cameraFragment2_to_alimentosFragment"
+            app:destination="@id/alimentosFragment" />
+    </fragment>
 
 </navigation>
