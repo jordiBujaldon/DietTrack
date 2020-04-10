@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="diets">
+        <item>Dieta Personalizada 1</item>
+        <item>Dieta Personalizada 2</item>
+        <item>Dieta Basal</item>
+        <item>Dieta Liquida</item>
+        <item>Dieta Semiblanda</item>
+        <item>Dieta Blanda</item>
+        <item>Dieta Astringente</item>
+        <item>Dieta de 1000 KCal</item>
+        <item>Dieta de 2000 KCal</item>
+        <item>Dieta de 3000 KCal</item>
+    </array>
+
+</resources>

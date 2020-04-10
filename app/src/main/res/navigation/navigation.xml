@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
     app:startDestination="@id/enterFragment">
 
     <fragment
@@ -10,6 +11,13 @@
         <action
             android:id="@+id/action_enterFragment_to_registrarFragment"
             app:destination="@id/registrarFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_enterFragment_to_signinFragment"
+            app:destination="@id/signinFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -50,5 +58,47 @@
         android:id="@+id/perfilFragment"
         android:name="com.example.pis2020.activities.fragments.PerfilFragment"
         android:label="PerfilFragment" />
+    <fragment
+        android:id="@+id/signinFragment"
+        android:name="com.example.pis2020.activities.fragments.SigninFragment"
+        android:label="SigninFragment" >
+        <action
+            android:id="@+id/action_signinFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/enterFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/alimentosFragment"
+        android:name="com.example.pis2020.activities.fragments.AlimentosFragment"
+        android:label="AlimentosFragment" >
+        <action
+            android:id="@+id/action_alimentosFragment_to_cameraFragment22"
+            app:destination="@id/cameraFragment2" />
+        <argument android:name="barcode"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/puntuacionFragment"
+        android:name="com.example.pis2020.activities.fragments.PuntuacionFragment"
+        android:label="PuntuacionFragment" />
+    <fragment
+        android:id="@+id/dietasFragment"
+        android:name="com.example.pis2020.activities.fragments.DietListFragment"
+        android:label="DietasFragment" />
+    <fragment
+        android:id="@+id/cameraFragment2"
+        android:name="com.example.pis2020.activities.fragments.CameraFragment"
+        android:label="CameraFragment" >
+        <action
+            android:id="@+id/action_cameraFragment2_to_alimentosFragment"
+            app:destination="@id/alimentosFragment" />
+    </fragment>
 
 </navigation>

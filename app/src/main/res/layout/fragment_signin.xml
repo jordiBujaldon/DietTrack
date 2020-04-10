@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.fragments.SigninFragment">
+
+        <ImageView
+            android:id="@+id/boton_atras_signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/content_boton_atras"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/titulo_diettrack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/carter_one"
+            android:text="@string/app_titulo"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/signin_nombre_usuario_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signin_nombre_usuario_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.350">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hint_nombre_usuario" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signin_contrasena_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/signin_nombre_usuario_layout"
+            app:layout_constraintStart_toStartOf="@+id/signin_nombre_usuario_layout"
+            app:layout_constraintTop_toBottomOf="@id/signin_nombre_usuario_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hint_contrasena" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/boton_iniciar_sesion2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/boto_entrar"
+            app:cornerRadius="@dimen/corner_button"
+            app:layout_constraintEnd_toEndOf="@+id/signin_contrasena_layout"
+            app:layout_constraintStart_toStartOf="@+id/signin_contrasena_layout"
+            app:layout_constraintTop_toBottomOf="@+id/signin_contrasena_layout" />
+
+        <TextView
+            android:id="@+id/texto_iniciar_sesion_con_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/texto_iniciar_sesion_google"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/boton_iniciar_sesion2"
+            app:layout_constraintStart_toStartOf="@+id/boton_iniciar_sesion2"
+            app:layout_constraintTop_toBottomOf="@+id/boton_iniciar_sesion2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/boton_registrar_google"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="monospace"
+            android:freezesText="false"
+            android:gravity="center"
+            android:text="@string/texto_google"
+            android:textAllCaps="true"
+            app:backgroundTint="@android:color/holo_red_light"
+            app:cornerRadius="@dimen/corner_button"
+            app:icon="@drawable/ic_google"
+            app:iconGravity="end"
+            app:iconPadding="0dp"
+            app:layout_constraintEnd_toEndOf="@+id/boton_iniciar_sesion2"
+            app:layout_constraintStart_toStartOf="@+id/boton_iniciar_sesion2"
+            app:layout_constraintTop_toBottomOf="@+id/texto_iniciar_sesion_con_google" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
