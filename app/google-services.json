@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "298070249664",
+    "firebase_url": "https://diettrack-97a64.firebaseio.com",
+    "project_id": "diettrack-97a64",
+    "storage_bucket": "diettrack-97a64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298070249664:android:b41cd40ea8fababe975d25",
+        "android_client_info": {
+          "package_name": "com.example.pis2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298070249664-j1786hpb2i1mq3ds3j83lgvkcmtvu4ii.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pis2020",
+            "certificate_hash": "580fcd3262ac0036a05e8435f44a09890074ed42"
+          }
+        },
+        {
+          "client_id": "298070249664-h9blkg09556d63g2r60pv9pn08ch9n33.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsXtvkNKN9bQ_b5vH9xO5x0x3MHc2U5w8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298070249664-h9blkg09556d63g2r60pv9pn08ch9n33.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
