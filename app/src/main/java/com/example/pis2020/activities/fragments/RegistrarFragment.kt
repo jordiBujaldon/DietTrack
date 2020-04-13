@@ -63,6 +63,8 @@ class RegistrarFragment : Fragment() {
             it.findNavController().navigate(
                 RegistrarFragmentDirections.actionRegistrarFragmentToDatosUsuarioFragment()
             )
+            createNewAccount()
+
         }
 
         binding.botonRegistrarGoogle.setOnClickListener {
