@@ -1,6 +1,7 @@
 package com.example.pis2020.network
 
 import com.example.pis2020.database.entities.EntityFood
+import com.example.pis2020.domain.Food
 import com.example.pis2020.domain.Product
 import com.example.pis2020.network.model.NetworkFood
 import com.example.pis2020.network.model.NetworkProduct
@@ -17,4 +18,10 @@ fun NetworkFood.asDatabaseModel(): EntityFood {
         status = status,
         product = product.asDomainModel()
     )
+}
+
+fun NetworkFood.asDomainModel(): Food {
+
+    return Food(status = status, product = product.asDomainModel())
+
 }
