@@ -30,6 +30,8 @@ class PerfilFragment : Fragment() {
             false
         )
 
+
+
         return binding.root
     }
     
