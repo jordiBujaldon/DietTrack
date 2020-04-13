@@ -34,5 +34,11 @@ class UserRepository() {
 
     }
 
+    fun login (email:String, contrasena: String, google:Boolean){
+
+        auth.signInWithEmailAndPassword(email,contrasena)
+
+    }
+
 
 }
