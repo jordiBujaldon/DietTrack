@@ -161,7 +161,12 @@ class CameraFragment : Fragment() {
             if (barcode != null) {
                 val barcodeFieldList = ArrayList<BarcodeField>()
                 barcodeFieldList.add(BarcodeField("Raw Value", barcode.rawValue ?: ""))
-                findNavController().navigate(CameraFragmentDirections.actionCameraFragment2ToAlimentosFragment(barcode.rawValue))
+                // Naveguem cap a la llista d'aliments
+                findNavController().navigate(
+                    CameraFragmentDirections.actionCameraFragment2ToAlimentosFragment(
+                        barcode.rawValue
+                    )
+                )
             }
         })
     }

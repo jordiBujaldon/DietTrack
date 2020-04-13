@@ -25,11 +25,12 @@ class FoodListAdapter(private val clickListener: OnClickListener) :
 
     }
 
-    class ViewHolder(private var binding: GridCardItemFoodBinding) :
+    inner class ViewHolder(private var binding: GridCardItemFoodBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(food: Food) {
             binding.food = food
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
     }

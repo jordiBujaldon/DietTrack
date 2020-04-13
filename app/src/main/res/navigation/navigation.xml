@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/enterFragment">
 
@@ -83,11 +84,20 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_alimentosFragment_to_puntuacionFragment"
+            app:destination="@id/puntuacionAlimentoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/puntuacionFragment"
-        android:name="com.example.pis2020.activities.fragments.PuntuacionFragment"
-        android:label="PuntuacionFragment" />
+        android:id="@+id/puntuacionAlimentoFragment"
+        android:name="com.example.pis2020.activities.fragments.PuntuacionAlimentoFragment"
+        android:label="PuntuacionFragment" >
+        <argument
+            android:name="food"
+            app:argType="com.example.pis2020.domain.Food"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
     <fragment
         android:id="@+id/dietasFragment"
         android:name="com.example.pis2020.activities.fragments.DietListFragment"
@@ -98,7 +108,13 @@
         android:label="CameraFragment" >
         <action
             android:id="@+id/action_cameraFragment2_to_alimentosFragment"
-            app:destination="@id/alimentosFragment" />
+            app:destination="@id/alimentosFragment"
+            app:popUpTo="@+id/navigation" />
     </fragment>
+    <fragment
+        android:id="@+id/puntuacionFragment"
+        android:name="com.example.pis2020.activities.fragments.PuntuacionFragment"
+        android:label="fragment_puntuacion"
+        tools:layout="@layout/fragment_puntuacion" />
 
 </navigation>

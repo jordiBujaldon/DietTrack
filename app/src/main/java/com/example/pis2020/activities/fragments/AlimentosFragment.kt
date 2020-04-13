@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 
@@ -17,6 +18,7 @@ import com.example.pis2020.activities.MainActivity
 import com.example.pis2020.activities.utils.adapters.FoodListAdapter
 import com.example.pis2020.databinding.FragmentAlimentosBinding
 import com.example.pis2020.viewmodels.AlimentosViewModel
+import java.lang.Exception
 
 class AlimentosFragment : Fragment() {
 
@@ -40,23 +42,8 @@ class AlimentosFragment : Fragment() {
         binding.viewModel = viewModel
 
         binding.recycleviewFoodlist.adapter = FoodListAdapter(FoodListAdapter.OnClickListener {
-            // TODO
+            viewModel.navigateToFoodItem(it)
         })
-
-        binding.botonEscaner.setOnClickListener {
-            findNavController().navigate(
-                AlimentosFragmentDirections.actionAlimentosFragmentToCameraFragment22()
-            )
-        }
-
-        // This callback will only be called when MyFragment is at least Started.
-        val callback: OnBackPressedCallback =
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    // TODO
-                }
-            }
-        activity?.onBackPressedDispatcher?.addCallback(this, callback)
 
         return binding.root
     }
@@ -64,8 +51,31 @@ class AlimentosFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         var barcode: String? = AlimentosFragmentArgs.fromBundle(arguments!!).barcode
         if (barcode != null) {
-            viewModel.saveScannedFood(barcode)
+            try {
+                viewModel.saveScannedFood(barcode)
+            } catch (e: Exception) {
+
+            }
         }
+
+        viewModel.navigateToCamera.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
+                findNavController().navigate(
+                    AlimentosFragmentDirections.actionAlimentosFragmentToCameraFragment22()
+                )
+                viewModel.navigateToCameraDone()
+            }
+        })
+
+        viewModel.navigateToFoodItem.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                findNavController().navigate(
+                    AlimentosFragmentDirections.actionAlimentosFragmentToPuntuacionFragment(it)
+                )
+                viewModel.navigateToFoodItemDone()
+            }
+        })
+        
         super.onActivityCreated(savedInstanceState)
     }
 }
