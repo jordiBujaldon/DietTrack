@@ -31,8 +31,6 @@ class FoodRepository(val application: Application) {
             val food:Food = networkFood.asDomainModel()
             foodDao.insert(entityFood)
             db.collection("Llista").add(food)
-
-
         }
     }
 

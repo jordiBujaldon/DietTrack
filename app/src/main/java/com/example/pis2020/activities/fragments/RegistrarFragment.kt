@@ -3,22 +3,21 @@ package com.example.pis2020.activities.fragments
 
 import android.os.Bundle
 import android.text.TextUtils
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+
+import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 
 import com.example.pis2020.R
 import com.example.pis2020.databinding.FragmentRegistrarBinding
 import com.example.pis2020.viewmodels.RegistrarViewModel
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 
 /**
  * A simple [Fragment] subclass.
@@ -26,10 +25,10 @@ import com.google.firebase.database.FirebaseDatabase
 class RegistrarFragment : Fragment() {
 
     private lateinit var binding: FragmentRegistrarBinding
-    private lateinit var dbReference: DatabaseReference
-    private lateinit var database: FirebaseDatabase
-    private lateinit var auth: FirebaseAuth
-    private lateinit var viewmodelUsuari:RegistrarViewModel
+
+    private val viewModel: RegistrarViewModel by lazy {
+        ViewModelProvider(this).get(RegistrarViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,13 +41,6 @@ class RegistrarFragment : Fragment() {
             false
         )
 
-
-        viewmodelUsuari = ViewModelProvider(this).get(RegistrarViewModel::class.java)
-        database = FirebaseDatabase.getInstance()
-        auth = FirebaseAuth.getInstance()
-        dbReference = database.reference.child("User")
-
-
         return binding.root
     }
 
@@ -60,11 +52,14 @@ class RegistrarFragment : Fragment() {
         }
 
         binding.botonRegistrar.setOnClickListener {
-            it.findNavController().navigate(
-                RegistrarFragmentDirections.actionRegistrarFragmentToDatosUsuarioFragment()
-            )
-            createNewAccount()
-
+            if (!TextUtils.isEmpty(binding.inputNombreUsuario.text.toString()) &&
+                !TextUtils.isEmpty(binding.inputContrasena.text.toString()) &&
+                !TextUtils.isEmpty(binding.inputCorreoElectronico.text.toString())){
+                viewModel.naviagetToUserData()
+            } else {
+                // TODO(Marcar en vermell els camps que no s'han omplert correctament)
+            }
+            // createNewAccount()
         }
 
         binding.botonRegistrarGoogle.setOnClickListener {
@@ -72,40 +67,23 @@ class RegistrarFragment : Fragment() {
         }
     }
 
-    fun register(view: View) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
-            createNewAccount()
-
-    }
-    //Repositori
-    private fun createNewAccount() {
-
-        val usuario: String = binding.inputNombreUsuario.text.toString()
-        val contrasena: String = binding.inputContrasena.text.toString()
-        val email: String = binding.inputCorreoElectronico.text.toString()
-
-        if (!TextUtils.isEmpty(usuario) && !TextUtils.isEmpty(contrasena) && !TextUtils.isEmpty(email)){
-
-            viewmodelUsuari.registrar(email,contrasena,false)
-
-
-        }
-    }
-
-
-    //Repositori
-    private fun verifyEmail(user:FirebaseUser){
-
-        user.sendEmailVerification().addOnCompleteListener(){
-            task ->
-
-            if(task.isComplete){
-                Toast.makeText(context,"Email enviado", Toast.LENGTH_LONG).show()
-
+        // Naveguem a la pantalla de les dades dels usuaris
+        viewModel.navigateToUserData.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
+                findNavController().navigate(
+                    RegistrarFragmentDirections.actionRegistrarFragmentToDatosUsuarioFragment(
+                        email = binding.inputCorreoElectronico.text.toString(),
+                        password = binding.inputContrasena.text.toString(),
+                        username = binding.inputNombreUsuario.text.toString()
+                    )
+                )
+                viewModel.navigateToUserDataComplete()
             }
-
-        }
-
+        })
     }
+
 }
 

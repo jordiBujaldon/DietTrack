@@ -1,19 +1,19 @@
 package com.example.pis2020.viewmodels
 
-import androidx.lifecycle.ViewModel
-import com.example.pis2020.repositories.UserRepository
+import androidx.lifecycle.*
 
 class RegistrarViewModel : ViewModel(){
 
-    private val repository = UserRepository()
+    private var _navigateToUserData = MutableLiveData<Boolean>()
+    val navigateToUserData: LiveData<Boolean>
+        get() = _navigateToUserData
 
-    fun registrar(email:String, contrasena:String, google:Boolean = false){
-
-        repository.createNewAccount(email,contrasena,false)
-
-
-
+    fun naviagetToUserData() {
+        _navigateToUserData.value = true
     }
 
+    fun navigateToUserDataComplete() {
+        _navigateToUserData.value = false
+    }
 
 }

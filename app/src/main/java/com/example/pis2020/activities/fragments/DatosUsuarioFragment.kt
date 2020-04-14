@@ -2,16 +2,26 @@ package com.example.pis2020.activities.fragments
 
 
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 
 import com.example.pis2020.R
 import com.example.pis2020.databinding.FragmentDatosUsuarioBinding
+import com.example.pis2020.viewmodels.DatosUsuarioViewModel
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
 /**
  * A simple [Fragment] subclass.
@@ -19,7 +29,15 @@ import com.example.pis2020.databinding.FragmentDatosUsuarioBinding
 class DatosUsuarioFragment : Fragment() {
 
     private lateinit var binding: FragmentDatosUsuarioBinding
-    //Prova
+    private lateinit var username: String
+    private lateinit var email: String
+    private lateinit var password: String
+
+    private val viewModel: DatosUsuarioViewModel by lazy {
+        ViewModelProvider(this, DatosUsuarioViewModel.Factory(requireActivity().application))
+            .get(DatosUsuarioViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +48,11 @@ class DatosUsuarioFragment : Fragment() {
             container,
             false
         )
+        binding.viewModel =  viewModel
+
+        username = DatosUsuarioFragmentArgs.fromBundle(arguments!!).username
+        email = DatosUsuarioFragmentArgs.fromBundle(arguments!!).email
+        password = DatosUsuarioFragmentArgs.fromBundle(arguments!!).password
 
         return binding.root
     }
@@ -42,9 +65,50 @@ class DatosUsuarioFragment : Fragment() {
         }
 
         binding.botonContinuarDatosUsuarios.setOnClickListener {
-            findNavController().navigate(
-                DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToMainFragment()
-            )
+            if (!TextUtils.isEmpty(binding.inputAge.text.toString()) &&
+                !TextUtils.isEmpty(binding.inputHeight.text.toString()) &&
+                !TextUtils.isEmpty(binding.inputWeight.text.toString())){
+                // Creem el nou compte de DietTrack
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(requireActivity()) {
+                        if (it.isSuccessful) {
+                            // Creem un nou compte i el guardem a la base de dades local i tambe
+                            // a Firebase
+                            viewModel.createAccount(
+                                it.result?.user!!.uid,
+                                email,
+                                password,
+                                username,
+                                binding.inputAge.text.toString(),
+                                binding.inputHeight.text.toString(),
+                                binding.inputWeight.text.toString()
+                            )
+                            // Naveguem a la part principal de l'aplicacio
+                            findNavController().navigate(
+                                DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToMainFragment()
+                            )
+                        } else {
+                            when (it.exception) {
+                                is FirebaseAuthInvalidCredentialsException -> {
+                                    Snackbar.make(binding.root, "Correo electronico no valido",
+                                        Snackbar.LENGTH_SHORT).show()
+                                }
+                                is FirebaseAuthUserCollisionException -> {
+                                    Snackbar.make(binding.root, "Este usuario ya existe",
+                                        Snackbar.LENGTH_SHORT).show()
+                                }
+                                is FirebaseAuthWeakPasswordException -> {
+                                    Snackbar.make(binding.root, "Contraseña no valida, introduce otra",
+                                        Snackbar.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
+                    }
+
+            } else {
+                // TODO(Marcar en vermell els camps que no s'han omplert correctament)
+            }
         }
     }
+
 }

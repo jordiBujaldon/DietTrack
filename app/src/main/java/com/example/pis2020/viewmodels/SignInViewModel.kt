@@ -1,16 +1,21 @@
 package com.example.pis2020.viewmodels
 
-import com.example.pis2020.repositories.UserRepository
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
-class SignInViewModel {
+class SignInViewModel : ViewModel() {
 
-    var userRepository: UserRepository = UserRepository()
+    private var _navigateToMainContent = MutableLiveData<Boolean>()
+    val navigateToMainContent: LiveData<Boolean>
+        get() = _navigateToMainContent
 
-    fun login (email:String,contrasena:String, google:Boolean = false){
-
-        userRepository.login(email,contrasena,false)
-
+    fun navigateToMainContent() {
+        _navigateToMainContent.value = true
     }
 
+    fun navigateToMainContentComplete() {
+        _navigateToMainContent.value = false
+    }
 
 }
