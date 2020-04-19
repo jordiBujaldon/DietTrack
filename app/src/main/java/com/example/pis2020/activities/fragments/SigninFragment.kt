@@ -22,7 +22,9 @@ import kotlin.math.sign
 class SigninFragment : Fragment() {
 
 
-    private var signinviewmodel: SignInViewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
+    private val signinviewmodel by lazy{
+        ViewModelProvider(this).get(SignInViewModel::class.java)
+    }
     private lateinit var binding:FragmentSigninBinding
 
 
