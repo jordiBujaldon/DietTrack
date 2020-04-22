@@ -11,7 +11,7 @@ class EnterViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: UserRepository =
         UserRepository(application)
 
-    val userLiveData: FirebaseUserLiveData = repository.user
+    val userLiveData: FirebaseUserLiveData = repository.liveUser
 
     private var _navigateToSignin = MutableLiveData<Boolean>()
     val navigateToSignin: LiveData<Boolean>

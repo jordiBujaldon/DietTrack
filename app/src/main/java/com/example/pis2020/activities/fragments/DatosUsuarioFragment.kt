@@ -75,13 +75,13 @@ class DatosUsuarioFragment : Fragment() {
                             // Creem un nou compte i el guardem a la base de dades local i tambe
                             // a Firebase
                             viewModel.createAccount(
-                                it.result?.user!!.uid,
-                                email,
-                                password,
-                                username,
-                                binding.inputAge.text.toString(),
-                                binding.inputHeight.text.toString(),
-                                binding.inputWeight.text.toString()
+                                id = it.result?.user!!.uid,
+                                email = email,
+                                password = password,
+                                username = username,
+                                age = binding.inputAge.text.toString(),
+                                height = binding.inputHeight.text.toString(),
+                                weight = binding.inputWeight.text.toString()
                             )
                             // Naveguem a la part principal de l'aplicacio
                             findNavController().navigate(

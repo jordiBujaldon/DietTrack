@@ -1,21 +1,22 @@
 package com.example.pis2020.repositories
 
 import android.app.Application
+
 import com.example.pis2020.activities.utils.FirebaseUserLiveData
 import com.example.pis2020.database.DietTrackDatabase
+import com.example.pis2020.database.entities.EntityUser
 import com.example.pis2020.domain.User
 import com.example.pis2020.domain.asDatabaseModel
-import com.example.pis2020.domain.asDomainModel
-import com.google.android.gms.tasks.OnCompleteListener
+
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.firestore.FirebaseFirestore
+
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.android.awaitFrame
 import kotlinx.coroutines.withContext
 
+/**
+ *
+ */
 class UserRepository(application: Application) {
 
     // Referencia a Firebase Authentication
@@ -23,7 +24,7 @@ class UserRepository(application: Application) {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     // LiveData de l'usuari
-    val user: FirebaseUserLiveData = FirebaseUserLiveData(auth)
+    val liveUser: FirebaseUserLiveData = FirebaseUserLiveData(auth)
 
     // Base de dades
     private val userDao = DietTrackDatabase.getInstance(application).userDao
@@ -38,6 +39,14 @@ class UserRepository(application: Application) {
             val user = User(id, email, password, username, age, height, weight)
             userDao.insert(user.asDatabaseModel())
             db.collection("users").document(email).set(user)
+        }
+    }
+
+    suspend fun checkSignedUser(user: User) {
+        if (userDao.getUser(auth.uid!!) != null) {
+            withContext(Dispatchers.IO) {
+                userDao.insert(user.asDatabaseModel())
+            }
         }
     }
 

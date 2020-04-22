@@ -6,6 +6,7 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -13,11 +14,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 
 import com.example.pis2020.databinding.FragmentSigninBinding
+import com.example.pis2020.domain.User
 import com.example.pis2020.viewmodels.SignInViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.firestore.FirebaseFirestore
 
 /**
  * A simple [Fragment] subclass.
@@ -25,7 +28,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException
 class SigninFragment : Fragment() {
 
     private val viewModel: SignInViewModel by lazy {
-        ViewModelProvider(this).get(SignInViewModel::class.java)
+        ViewModelProvider(this, SignInViewModel.Factory(requireActivity().application))
+            .get(SignInViewModel::class.java)
     }
     private lateinit var binding: FragmentSigninBinding
     private val mAuth = FirebaseAuth.getInstance()
@@ -80,6 +84,16 @@ class SigninFragment : Fragment() {
                 viewModel.navigateToMainContentComplete()
             }
         })
+    }
+
+    private fun checkUser(email: String) {
+        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+        db.collection("users").document(email).get().addOnSuccessListener { user ->
+            val user = user.toObject(User::class.java)
+            if (user != null) {
+                viewModel.checkSignedUser(user)
+            }
+        }
     }
 
 }

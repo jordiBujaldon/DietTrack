@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="diet"
+            type="com.example.pis2020.domain.Diet" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nombre_dieta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:text="Dieta Basal"
+            setText="@{diet.name}"/>
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_dieta"
+            android:layout_alignRight="@id/nombre_dieta"/>
+
+        <TextView
+            android:id="@+id/descripcion_dieta"
+            setText="@{diet.description}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_dieta"
+            android:layout_toLeftOf="@id/checkBox"
+            android:layout_marginLeft="16dp"
+            tools:text="Una dieta basal contiene la cantidad ideal de calorias diarias necesarias para una persona. Su objetivo es nutrir de manera equilibrada para el funcionamiento normal del cuerpo." />
+    </RelativeLayout>
+
+</layout>

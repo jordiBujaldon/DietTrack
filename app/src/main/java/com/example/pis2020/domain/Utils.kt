@@ -8,6 +8,7 @@ fun List<EntityFood>.asDomainModel(): List<Food> {
     return map {
         Food(
             status = it.status,
+            userId = it.user_id,
             product = it.product
         )
     }
@@ -27,12 +28,12 @@ fun FirebaseUser.asDomainModel(): User {
 
 fun User.asDatabaseModel(): EntityUser {
     return EntityUser(
-        id = id,
-        email = email,
-        password = password,
-        username = username,
-        age = age,
-        height = height,
-        weight = weight
+        id = id!!,
+        email = email!!,
+        password = password!!,
+        username = username!!,
+        age = age!!,
+        height = height!!,
+        weight = weight!!
     )
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="diets">
+    <string-array name="diets">
         <item>Dieta Personalizada 1</item>
         <item>Dieta Personalizada 2</item>
         <item>Dieta Basal</item>
@@ -11,6 +11,18 @@
         <item>Dieta de 1000 KCal</item>
         <item>Dieta de 2000 KCal</item>
         <item>Dieta de 3000 KCal</item>
-    </array>
+    </string-array>
+    <string-array name="diets_description">
+        <item>La dieta personalizada contendrá alimentos seleccionados, adaptados a preferencias y necesidades. La cantidad de nutrientes será equilibrada.</item>
+        <item>La dieta personalizada contendrá alimentos seleccionados, adaptados a preferencias y necesidades. La cantidad de nutrientes será equilibrada.</item>
+        <item>Una dieta basal contiene la cantidad ideal de calorias diarias necesarias para una persona. Su objetivo es nutrir de manera equilibrada para el funcionamiento normal del cuerpo.</item>
+        <item>Una dieta liquida consiste en únicamente la ingesta de alimentos liquidos ricos en nutrientes, para mejorar  el funcionamiento de la digestión y ayudar a perder peso. Estos alimentos són mayoritariamente bebidas y sopas</item>
+        <item>Una dieta semiblanda contiene, además de varios alimentos de la dieta liquida, alimentos con textura pastosa. Los alimentos són fáciles de digerir para que no irriten el estómago</item>
+        <item>Una dieta blanda se conforma por alimentos fáciles de masticar y digerir. Es recomendable seguirla en caso de dificultad en la digestión.</item>
+        <item>Una dieta astringente contiene alimentos fáciles de digerir que no generen muchos residuos. Se utiliza para una buena nutrición en caso de problemas estomacales.</item>
+        <item>Una dieta de 1000 KCal contiene una cantidad baja de calorias. Esto facilita la perdida de peso en caso de no poder hacer ejercicio</item>
+        <item>Una dieta de 2000 KCal contiene una cantidad algo baja de calorias, suficiente para mantener una elevada actividad física y perder peso.</item>
+        <item>Una dieta de 3000 KCal contiene una cantidad alta de calorías. Es ideal para mantener en forma un cuerpo con alta actividad física.</item>
+    </string-array>
 
 </resources>

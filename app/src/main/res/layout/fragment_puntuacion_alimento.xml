@@ -3,166 +3,268 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container_puntuacion"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.pis2020.viewmodels.PuntuacionAlimentoViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imagen_producto"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_puntuacion"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@id/nombre_producto"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/nombre_producto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="ColaCao El Original"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <ImageView
+                android:id="@+id/boton_atras_puntuacion_alimento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/content_boton_atras"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back"/>
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text="Cola Cao"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/progressBar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <ImageView
+                android:id="@+id/imagen_producto"
+                setImage="@{viewModel.selectedFood.product.image}"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginRight="48dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@id/nombre_producto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic"/>
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:indeterminate="false"
-            android:max="100"
-            android:progress="30"
-            android:progressBackgroundTint="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/texto_evaluacion"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/nombre_producto"
+                setText="@{viewModel.selectedFood.product.name}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/progressBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="ColaCao El Original" />
 
-        <TextView
-            android:id="@+id/texto_evaluacion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:text="Medio"
-            app:layout_constraintBottom_toBottomOf="@+id/progressBar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/progressBar" />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="30"
+                android:progressBackgroundTint="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/texto_evaluacion"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cada 100 g"
-            app:layout_constraintEnd_toEndOf="@+id/textView13"
-            app:layout_constraintTop_toTopOf="@+id/textView16" />
+            <TextView
+                android:id="@+id/texto_evaluacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:text="Medio"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/progressBar" />
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:text="Cada 100 g"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView17" />
+            <TextView
+                android:id="@+id/progreso_numero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30/100"
+                app:layout_constraintEnd_toEndOf="@+id/progressBar"
+                app:layout_constraintStart_toStartOf="@+id/progressBar"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Proteinas"
-            app:layout_constraintStart_toStartOf="@+id/textView15"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+            <TextView
+                android:id="@+id/informacion_nutricional_texto_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/titulo_info_nutri"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/progressBar"
+                app:layout_constraintTop_toBottomOf="@+id/progreso_numero" />
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Grasas saturadas"
-            app:layout_constraintStart_toStartOf="@+id/textView20"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            <TextView
+                android:id="@+id/texto_valor_energetico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/texto_valor_energetico"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/informacion_nutricional_texto_titulo"
+                app:layout_constraintTop_toBottomOf="@+id/informacion_nutricional_texto_titulo" />
 
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Sal "
-            app:layout_constraintStart_toStartOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+            <TextView
+                android:id="@+id/texto_grasas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/texto_grasas"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/informacion_nutricional_texto_titulo"
+                app:layout_constraintTop_toBottomOf="@+id/texto_valor_energetico" />
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Positivo"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView17"
-            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+            <TextView
+                android:id="@+id/texto_grasas_saturadas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/texto_grasas_saturadas"
+                app:layout_constraintStart_toStartOf="@+id/texto_grasas"
+                app:layout_constraintTop_toBottomOf="@+id/texto_grasas" />
 
-        <TextView
-            android:id="@+id/textView17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Negativo"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/progressBar"
-            app:layout_constraintTop_toBottomOf="@+id/progreso_numero" />
+            <TextView
+                android:id="@+id/texto_hidratos_carbono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/texto_hidratos_carbono"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/informacion_nutricional_texto_titulo"
+                app:layout_constraintTop_toBottomOf="@+id/texto_grasas_saturadas" />
 
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Azúcar"
-            app:layout_constraintStart_toStartOf="@+id/textView18"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+            <TextView
+                android:id="@+id/texto_hidratos_azucares"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/texto_hidratos_azucares"
+                app:layout_constraintStart_toStartOf="@+id/texto_hidratos_carbono"
+                app:layout_constraintTop_toBottomOf="@+id/texto_hidratos_carbono" />
 
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Valor energético"
-            app:layout_constraintStart_toStartOf="@+id/textView17"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            <TextView
+                android:id="@+id/texto_proteinas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/texto_proteinas"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/informacion_nutricional_texto_titulo"
+                app:layout_constraintTop_toBottomOf="@+id/texto_hidratos_azucares" />
 
-        <TextView
-            android:id="@+id/progreso_numero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="30/100"
-            app:layout_constraintEnd_toEndOf="@+id/progressBar"
-            app:layout_constraintStart_toStartOf="@+id/progressBar"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+            <TextView
+                android:id="@+id/texto_sal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/texto_sal"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/informacion_nutricional_texto_titulo"
+                app:layout_constraintTop_toBottomOf="@+id/texto_proteinas" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/resultado_valor_energetico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:layout_marginRight="48dp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/texto_hidratos_azucares"
+                app:layout_constraintTop_toTopOf="@+id/texto_valor_energetico"
+                tools:text="1945"
+                setNutriment="@{viewModel.selectedFood.product.nutriments.energy}"/>
+
+            <TextView
+                android:id="@+id/resultado_grasas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/resultado_valor_energetico"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/texto_hidratos_azucares"
+                app:layout_constraintTop_toTopOf="@+id/texto_grasas"
+                tools:text="1.55"
+                setNutriment="@{viewModel.selectedFood.product.nutriments.fat}"/>
+
+            <TextView
+                android:id="@+id/resultado_grasas_saturadas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/resultado_valor_energetico"
+                app:layout_constraintTop_toTopOf="@+id/texto_grasas_saturadas"
+                tools:text="1.05"
+                setNutriment="@{viewModel.selectedFood.product.nutriments.saturatedFat}"/>
+
+            <TextView
+                android:id="@+id/resultado_hidratos_carbono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/resultado_valor_energetico"
+                app:layout_constraintTop_toTopOf="@+id/texto_hidratos_carbono"
+                tools:text="4.65"
+                setNutriment="@{viewModel.selectedFood.product.nutriments.carbonHydrate}"/>
+
+            <TextView
+                android:id="@+id/resultado_hidratos_azucares"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/resultado_valor_energetico"
+                app:layout_constraintTop_toTopOf="@+id/texto_hidratos_azucares"
+                tools:text="4.65"
+                setNutriment="@{viewModel.selectedFood.product.nutriments.sugars}"/>
+
+            <TextView
+                android:id="@+id/resultado_proteinas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/resultado_valor_energetico"
+                app:layout_constraintTop_toTopOf="@+id/texto_proteinas"
+                tools:text="3.15"
+                setNutriment="@{viewModel.selectedFood.product.nutriments.proteins}"/>
+
+            <TextView
+                android:id="@+id/resultado_sal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/resultado_valor_energetico"
+                app:layout_constraintTop_toTopOf="@+id/texto_sal"
+                tools:text="0.1"
+                setNutriment="@{viewModel.selectedFood.product.nutriments.salt}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </layout>

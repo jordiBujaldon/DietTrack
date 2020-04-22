@@ -45,7 +45,7 @@
             app:spanCount="2"
             tools:listitem="@layout/grid_card_item_food"
             tools:itemCount="16"
-            recycleList="@{viewModel.foodList}"/>
+            recycleListFood="@{viewModel.foodList}"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/boton_escaner"

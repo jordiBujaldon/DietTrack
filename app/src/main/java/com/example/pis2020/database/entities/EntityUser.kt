@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "tabla_usuarios")
 data class EntityUser(
     @PrimaryKey
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "firebase_id")
     val id: String,
 
     @ColumnInfo(name = "correo")

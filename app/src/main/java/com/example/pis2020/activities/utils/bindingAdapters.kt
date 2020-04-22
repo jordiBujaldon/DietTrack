@@ -1,18 +1,38 @@
 package com.example.pis2020.activities.utils
 
+import android.annotation.SuppressLint
 import android.widget.ImageView
 import android.widget.TextView
+
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+
 import com.bumptech.glide.Glide
+import com.example.pis2020.activities.utils.adapters.DietListAdapter
+
 import com.example.pis2020.activities.utils.adapters.FoodListAdapter
+import com.example.pis2020.domain.Diet
 import com.example.pis2020.domain.Food
 
-@BindingAdapter("recycleList")
-fun RecyclerView.setRecycleList(list: List<Food>?) {
+@BindingAdapter("recycleListFood")
+fun RecyclerView.setRecycleListFood(list: List<Food>?) {
     val adapter: FoodListAdapter = adapter as FoodListAdapter
     adapter.submitList(list)
+}
+
+@BindingAdapter("recycleListDiets")
+fun RecyclerView.setRecycleListDiet(list: List<Diet>?) {
+    val adapter: DietListAdapter = adapter as DietListAdapter
+    adapter.submitList(list)
+}
+
+@SuppressLint("SetTextI18n")
+@BindingAdapter("setNutriment")
+fun TextView.setTextViewDouble(value: Double?) {
+    value.let {
+        this.text = "$value g"
+    }
 }
 
 @BindingAdapter("setText")

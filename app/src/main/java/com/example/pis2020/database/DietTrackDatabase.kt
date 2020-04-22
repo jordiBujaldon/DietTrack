@@ -26,7 +26,10 @@ abstract class DietTrackDatabase : RoomDatabase() {
                 if (instance == null) {
                     instance = Room.databaseBuilder(context.applicationContext,
                         DietTrackDatabase::class.java,
-                        "diettrack").fallbackToDestructiveMigration().build()
+                        "diettrack")
+                        .allowMainThreadQueries()
+                        .fallbackToDestructiveMigration()
+                        .build()
 
                     INSTANCE = instance
                 }

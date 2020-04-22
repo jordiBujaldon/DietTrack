@@ -1,5 +1,8 @@
 package com.example.pis2020.activities.utils
 
+import android.content.Context
+import com.example.pis2020.R
+import com.example.pis2020.domain.Diet
 import java.util.*
 
 fun getCalendarioNumerosMes(calendario: Calendar): List<Int> {
@@ -51,4 +54,16 @@ private fun convertirDiaAString(dia: Int): String {
         7 -> "Sabado"
         else -> ""
     }
+}
+
+fun getDietList(context: Context): List<Diet> {
+    val list: MutableList<Diet> = mutableListOf()
+    val nameDiets: Array<String> = context.resources.getStringArray(R.array.diets)
+    val descDiets: Array<String> = context.resources.getStringArray(R.array.diets_description)
+
+    for (i: Int in nameDiets.indices) {
+        list.add(Diet(nameDiets[i], descDiets[i]))
+    }
+
+    return list
 }

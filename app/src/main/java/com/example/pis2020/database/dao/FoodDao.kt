@@ -14,7 +14,7 @@ interface FoodDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(food: EntityFood)
 
-    @Query("SELECT * FROM food_table")
-    fun getFoodList(): LiveData<List<EntityFood>>
+    @Query("SELECT * FROM food_table WHERE user_id = :id")
+    fun getFoodListFromUserWithId(id: String): LiveData<List<EntityFood>>
 
 }

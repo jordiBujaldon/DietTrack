@@ -1,11 +1,11 @@
 package com.example.pis2020.domain
 
 data class User(
-    val id: String,
-    val email: String,
-    var password: String,
-    var username: String,
-    var age: Int,
-    var height: Double,
-    var weight: Double
+    val id: String? = null,
+    val email: String? = null,
+    val password: String? = null,
+    val username: String? = null,
+    val age: Int? = null,
+    val height: Double? = null,
+    val weight: Double? = null
 )

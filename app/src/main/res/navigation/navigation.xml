@@ -108,9 +108,10 @@
         android:label="PuntuacionFragment" >
         <argument
             android:name="food"
-            app:argType="com.example.pis2020.domain.Food"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:argType="com.example.pis2020.domain.Food" />
+        <action
+            android:id="@+id/action_puntuacionAlimentoFragment_to_alimentosFragment"
+            app:destination="@id/alimentosFragment" />
     </fragment>
     <fragment
         android:id="@+id/dietasFragment"
