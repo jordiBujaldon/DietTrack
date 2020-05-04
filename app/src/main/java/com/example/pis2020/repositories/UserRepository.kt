@@ -1,12 +1,15 @@
 package com.example.pis2020.repositories
 
 import android.app.Application
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 
 import com.example.pis2020.activities.utils.FirebaseUserLiveData
 import com.example.pis2020.database.DietTrackDatabase
 import com.example.pis2020.database.entities.EntityUser
 import com.example.pis2020.domain.User
 import com.example.pis2020.domain.asDatabaseModel
+import com.example.pis2020.domain.asDomainModel
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -50,4 +53,10 @@ class UserRepository(application: Application) {
         }
     }
 
+    suspend fun getUser(): User {
+        return withContext(Dispatchers.IO) {
+            val user = userDao.getUser(auth.uid!!)?.asDomainModel()
+            user!!
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.pis2020.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.pis2020.database.entities.EntityUser
 

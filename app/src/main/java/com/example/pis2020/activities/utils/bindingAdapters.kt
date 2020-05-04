@@ -42,6 +42,13 @@ fun TextView.setTextView(newText: String?) {
     }
 }
 
+@BindingAdapter("doubleNumber")
+fun TextView.setDoubleNumber(value: Double?) {
+    value?.let {
+        this.text = it.toString()
+    }
+}
+
 @BindingAdapter("setImage")
 fun ImageView.setImageView(url: String?) {
     url?.let {

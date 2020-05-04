@@ -37,3 +37,15 @@ fun User.asDatabaseModel(): EntityUser {
         weight = weight!!
     )
 }
+
+fun EntityUser.asDomainModel(): User {
+    return User(
+        id = id,
+        email = email,
+        password = password,
+        username = username,
+        age = age,
+        height = height,
+        weight = weight
+    )
+}
