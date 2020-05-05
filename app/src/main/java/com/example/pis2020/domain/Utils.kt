@@ -22,7 +22,14 @@ fun FirebaseUser.asDomainModel(): User {
         username = "",
         age = 0,
         height = 0.0,
-        weight = 0.0
+        weight = 0.0,
+        calories = 0.0,
+        hidratsCarb = 0.0,
+        proteins = 0.0,
+        sugars = 0.0,
+        fats = 0.0,
+        saturedFats = 0.0,
+        sodium = 0.0
     )
 }
 
@@ -34,7 +41,14 @@ fun User.asDatabaseModel(): EntityUser {
         username = username!!,
         age = age!!,
         height = height!!,
-        weight = weight!!
+        weight = weight!!,
+        calories = calories!!,
+        hidratsCarb = hidratsCarb!!,
+        proteins = proteins!!,
+        sugars = sugars!!,
+        fats = fats!!,
+        saturedFats = saturedFats!!,
+        sodium = sodium!!
     )
 }
 
@@ -46,6 +60,13 @@ fun EntityUser.asDomainModel(): User {
         username = username,
         age = age,
         height = height,
-        weight = weight
+        weight = weight,
+        calories = calories,
+        hidratsCarb = hidratsCarb,
+        proteins = proteins,
+        sugars = sugars,
+        fats = fats,
+        saturedFats = saturedFats,
+        sodium = sodium
     )
 }

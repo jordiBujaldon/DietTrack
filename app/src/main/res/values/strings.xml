@@ -82,4 +82,6 @@
     <string name="texto_proteinas">Proteinas</string>
     <string name="texto_sal">Sal</string>
     <string name="texto_calcio">Calcio</string>
+    <string name="texto_sodio">Sodio</string>
+    <string name="texto_calorias">Calorias</string>
 </resources>

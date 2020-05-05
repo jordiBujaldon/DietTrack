@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import com.example.pis2020.R
@@ -27,6 +28,12 @@ class PuntuacionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding: FragmentPuntuacionBinding = FragmentPuntuacionBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        viewModel.user.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                binding.user = it
+            }
+        })
 
         return binding.root
     }

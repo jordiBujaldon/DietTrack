@@ -26,5 +26,26 @@ data class EntityUser(
     val height: Double,
 
     @ColumnInfo(name = "peso")
-    val weight: Double
+    val weight: Double,
+
+    @ColumnInfo(name = "total_calories")
+    val calories: Double,
+
+    @ColumnInfo(name = "total_hidr_carb")
+    val hidratsCarb: Double,
+
+    @ColumnInfo(name = "total_proteins")
+    val proteins: Double,
+
+    @ColumnInfo(name = "total_sugars")
+    val sugars: Double,
+
+    @ColumnInfo(name = "total_fats")
+    val fats: Double,
+
+    @ColumnInfo(name = "total_satured_fats")
+    val saturedFats: Double,
+
+    @ColumnInfo(name = "total_sodium")
+    val sodium: Double
 )

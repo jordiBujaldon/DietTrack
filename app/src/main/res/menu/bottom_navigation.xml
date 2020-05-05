@@ -10,10 +10,6 @@
         android:icon="@drawable/ic_puntuacion"
         android:title="@string/menu_puntuacion" />
     <item
-        android:id="@+id/dietasFragment"
-        android:icon="@drawable/ic_diet"
-        android:title="@string/menu_dietas" />
-    <item
         android:id="@+id/alimentosFragment"
         android:icon="@drawable/ic_food"
         android:title="@string/menu_alimentos" />

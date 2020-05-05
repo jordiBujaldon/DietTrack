@@ -59,4 +59,13 @@ class UserRepository(application: Application) {
             user!!
         }
     }
+
+    suspend fun updateUser(user: User) {
+        withContext(Dispatchers.IO) {
+            val entity: EntityUser = user.asDatabaseModel()
+            userDao.update(entity)
+            // TODO(Actualitzar a firebase)
+        }
+    }
+
 }
