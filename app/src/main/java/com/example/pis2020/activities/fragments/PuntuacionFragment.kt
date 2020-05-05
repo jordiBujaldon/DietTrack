@@ -6,21 +6,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 
 import com.example.pis2020.R
+import com.example.pis2020.databinding.FragmentPuntuacionBinding
+import com.example.pis2020.viewmodels.PuntuacioViewModel
 
 /**
  * A simple [Fragment] subclass.
  */
 class PuntuacionFragment : Fragment() {
 
+    private val viewModel: PuntuacioViewModel by lazy {
+        ViewModelProvider(this, PuntuacioViewModel.Factory(requireActivity().application))
+            .get(PuntuacioViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_puntuacion, container, false)
-    }
+        val binding: FragmentPuntuacionBinding = FragmentPuntuacionBinding.inflate(inflater)
 
+        return binding.root
+    }
 
 }
