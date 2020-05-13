@@ -127,5 +127,9 @@
         android:name="com.example.pis2020.activities.fragments.PuntuacionFragment"
         android:label="fragment_puntuacion"
         tools:layout="@layout/fragment_puntuacion" />
+    <fragment
+        android:id="@+id/dietasFragment"
+        android:name="com.example.pis2020.activities.fragments.DietListFragment"
+        android:label="DietListFragment" />
 
 </navigation>

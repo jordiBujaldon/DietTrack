@@ -39,7 +39,8 @@ class UserRepository(application: Application) {
     suspend fun createAccount(id: String, email: String, password: String, username: String,
                               age: Int, height: Double, weight: Double) {
         withContext(Dispatchers.IO) {
-            val user = User(id, email, password, username, age, height, weight)
+            val user = User(id, email, password, username, age, height, weight, 0.0,
+                0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
             userDao.insert(user.asDatabaseModel())
             db.collection("users").document(email).set(user)
         }

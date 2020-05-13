@@ -57,21 +57,21 @@ dependencies {
     implementation 'com.mikhaellopez:circularimageview:4.2.0'
 
     // Librerias para hacer la navegacion con los fragments
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
 
     // Libreria que nos proporciona una UI mas atractiva
     implementation 'com.google.android.material:material:1.1.0'
 
     // MLKit Dependencies
-    implementation 'com.google.firebase:firebase-ml-vision:24.0.2'
+    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
 
     // Firebase Analytics
-    implementation 'com.google.firebase:firebase-analytics:17.3.0'
+    implementation 'com.google.firebase:firebase-analytics:17.4.1'
 
     //Firebase database
-    implementation 'com.google.firebase:firebase-firestore:21.4.2'
-    implementation 'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.google.firebase:firebase-firestore:21.4.3'
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
 
     // Moshi. Convierte el JSON en objetos Kotlin
     implementation "com.squareup.moshi:moshi:1.8.0"
@@ -91,8 +91,11 @@ dependencies {
     kapt "androidx.room:room-compiler:2.2.5"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
 
+    //Llibreria grafics
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
     // Libreria GSON
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.google.code.gson:gson:2.8.6'
 
     // Glide -> Agafa l'URL de la imatge i la posa a un ImageView de forma eficient
     implementation 'com.github.bumptech.glide:glide:4.11.0'
