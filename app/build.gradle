@@ -46,6 +46,7 @@ dependencies {
 
     //Libreria para recyclerviews
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation "androidx.recyclerview:recyclerview-selection:1.0.0"
     implementation 'androidx.cardview:cardview:1.0.0'
 
     testImplementation 'junit:junit:4.12'

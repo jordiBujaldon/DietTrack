@@ -30,7 +30,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/menu_puntuacion" />
+                android:text="@string/menu_puntuacion" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -55,85 +55,88 @@
 
             <TextView
                 android:id="@+id/texto_proteinas"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/texto_proteinas"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/resultado_proteinas"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/diet_rating" />
 
             <TextView
                 android:id="@+id/texto_hidratos_carbono"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/texto_hidratos_carbono"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/resultado_hidratos_carbono"
                 app:layout_constraintStart_toStartOf="@+id/texto_proteinas"
                 app:layout_constraintTop_toBottomOf="@+id/texto_proteinas" />
 
             <TextView
                 android:id="@+id/texto_grasas"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/texto_grasas"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/resultado_grasas"
                 app:layout_constraintStart_toStartOf="@+id/texto_azucar"
                 app:layout_constraintTop_toBottomOf="@+id/texto_azucar" />
 
             <TextView
                 android:id="@+id/texto_grasas_saturadas"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/texto_grasas_saturadas"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/resultado_grasas_saturadas"
                 app:layout_constraintStart_toStartOf="@+id/texto_grasas"
                 app:layout_constraintTop_toBottomOf="@+id/texto_grasas" />
 
             <TextView
                 android:id="@+id/texto_sodio"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/texto_sodio"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/resultado_sodio"
                 app:layout_constraintStart_toStartOf="@+id/texto_grasas_saturadas"
                 app:layout_constraintTop_toBottomOf="@+id/texto_grasas_saturadas" />
 
             <TextView
-                android:id="@+id/texto_calorias"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/texto_calorias"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/texto_sodio"
-                app:layout_constraintTop_toBottomOf="@+id/texto_sodio" />
-
-            <TextView
                 android:id="@+id/texto_azucar"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/texto_hidratos_azucares"
                 android:textColor="@color/black"
@@ -146,7 +149,7 @@
             <TextView
                 android:id="@+id/resultado_proteinas"
                 setNutriment="@{user.proteins}"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="48dp"
                 android:layout_marginRight="48dp"
@@ -159,32 +162,32 @@
 
             <TextView
                 android:id="@+id/resultado_hidratos_carbono"
-                android:layout_width="wrap_content"
+                setNutriment="@{user.hidratsCarb}"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/resultado_proteinas"
                 app:layout_constraintTop_toTopOf="@+id/texto_hidratos_carbono"
-                tools:text="56g"
-                setNutriment="@{user.hidratsCarb}"/>
+                tools:text="56g" />
 
             <TextView
                 android:id="@+id/resultado_azucar"
-                android:layout_width="wrap_content"
+                setNutriment="@{user.sugars}"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/resultado_hidratos_carbono"
                 app:layout_constraintTop_toTopOf="@+id/texto_azucar"
-                tools:text="30g"
-                setNutriment="@{user.sugars}"/>
+                tools:text="30g" />
 
             <TextView
                 android:id="@+id/resultado_grasas"
                 setNutriment="@{user.fats}"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/black"
@@ -196,7 +199,7 @@
             <TextView
                 android:id="@+id/resultado_grasas_saturadas"
                 setNutriment="@{user.saturedFats}"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/black"
@@ -208,7 +211,7 @@
             <TextView
                 android:id="@+id/resultado_sodio"
                 setNutriment="@{user.sodium}"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/black"
@@ -216,17 +219,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/resultado_grasas_saturadas"
                 app:layout_constraintTop_toTopOf="@+id/texto_sodio"
                 tools:text="50g" />
-
-            <TextView
-                android:id="@+id/resultado_calorias"
-                setNutriment="@{user.calories}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/resultado_sodio"
-                app:layout_constraintTop_toTopOf="@+id/texto_calorias"/>
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pieChart"
@@ -237,7 +229,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto_calorias" />
+                app:layout_constraintTop_toBottomOf="@+id/texto_sodio" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

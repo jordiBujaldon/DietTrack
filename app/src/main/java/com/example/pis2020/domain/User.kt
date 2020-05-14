@@ -17,15 +17,15 @@ data class User(
 
     val calories: Double? = null,
 
-    val hidratsCarb: Double? = null,
+    var hidratsCarb: Double = 0.0,
 
-    val proteins: Double? = null,
+    var proteins: Double = 0.0,
 
-    val sugars: Double? = null,
+    var sugars: Double = 0.0,
 
-    val fats: Double? = null,
+    var fats: Double = 0.0,
 
-    val saturedFats: Double? = null,
+    var saturedFats: Double = 0.0,
 
-    val sodium: Double? = null
+    var sodium: Double = 0.0
 )

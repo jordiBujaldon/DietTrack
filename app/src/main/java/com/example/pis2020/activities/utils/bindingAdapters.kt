@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.pis2020.activities.utils.adapters.DietListAdapter
 
 import com.example.pis2020.activities.utils.adapters.FoodListAdapter
+import com.example.pis2020.activities.utils.adapters.SelectionFoodListAdapter
 import com.example.pis2020.domain.Diet
 import com.example.pis2020.domain.Food
 
@@ -24,6 +25,12 @@ fun RecyclerView.setRecycleListFood(list: List<Food>?) {
 @BindingAdapter("recycleListDiets")
 fun RecyclerView.setRecycleListDiet(list: List<Diet>?) {
     val adapter: DietListAdapter = adapter as DietListAdapter
+    adapter.submitList(list)
+}
+
+@BindingAdapter("recycleSelectFood")
+fun RecyclerView.setRecycleSelectFood(list: List<Food>?) {
+    val adapter: SelectionFoodListAdapter = adapter as SelectionFoodListAdapter
     adapter.submitList(list)
 }
 

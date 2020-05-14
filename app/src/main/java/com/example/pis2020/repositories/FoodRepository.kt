@@ -35,7 +35,7 @@ class FoodRepository(val application: Application) {
         withContext(Dispatchers.IO) {
             val networkFood: NetworkFood = OpenFoodApi.retorfitService.getFood(barcode).await()
             val entityFood: EntityFood = networkFood.asDatabaseModel(id!!)
-            db.collection("food-list").document(id).set(entityFood)
+            db.collection("food-list").document(barcode).set(entityFood)
             foodDao.insert(entityFood)
         }
     }

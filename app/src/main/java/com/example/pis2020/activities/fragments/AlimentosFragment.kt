@@ -49,7 +49,7 @@ class AlimentosFragment : Fragment() {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        var barcode: String? = AlimentosFragmentArgs.fromBundle(arguments!!).barcode
+        var barcode: String? = AlimentosFragmentArgs.fromBundle(requireArguments()).barcode
         if (barcode != null) {
             try {
                 viewModel.saveScannedFood(barcode)
