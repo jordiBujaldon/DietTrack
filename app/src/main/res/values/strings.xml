@@ -87,4 +87,5 @@
     <string name="texto_seleccion">Selecciona los alimentos de la lista de alimentos escaneados para llevar el control de tus macronutrientes:</string>
     <string name="texto_hecho">Hecho</string>
     <string name="titulo_seleccion_alimentos">Lista de alimentos escaneados</string>
+    <string name="boton_texto_mostrar_grafico">Mostrar gráfico</string>
 </resources>

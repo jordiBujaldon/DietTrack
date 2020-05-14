@@ -13,6 +13,7 @@ import com.example.pis2020.R
 import com.example.pis2020.activities.utils.adapters.SelectionFoodListAdapter
 import com.example.pis2020.databinding.FragmentMainBinding
 import com.example.pis2020.viewmodels.MainViewModel
+import com.google.android.material.snackbar.Snackbar
 
 
 /**
@@ -41,6 +42,8 @@ class MainFragment : Fragment() {
 
         binding.botonHecho.setOnClickListener {
             checkList()
+            Snackbar.make(binding.root, "Ir a puntuación para ver tus resultados",
+                Snackbar.LENGTH_LONG).show()
         }
 
         return binding.root

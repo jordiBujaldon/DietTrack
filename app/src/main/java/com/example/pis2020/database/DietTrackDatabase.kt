@@ -8,7 +8,7 @@ import com.example.pis2020.database.dao.UserDao
 import com.example.pis2020.database.entities.EntityFood
 import com.example.pis2020.database.entities.EntityUser
 
-@Database(entities = [EntityFood::class, EntityUser::class], version = 1, exportSchema = false)
+@Database(entities = [EntityFood::class, EntityUser::class], version = 2, exportSchema = false)
 @TypeConverters(ProductConverter::class)
 abstract class DietTrackDatabase : RoomDatabase() {
 

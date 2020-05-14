@@ -15,6 +15,7 @@ import com.example.pis2020.activities.utils.adapters.FoodListAdapter
 import com.example.pis2020.activities.utils.adapters.SelectionFoodListAdapter
 import com.example.pis2020.domain.Diet
 import com.example.pis2020.domain.Food
+import java.text.DecimalFormat
 
 @BindingAdapter("recycleListFood")
 fun RecyclerView.setRecycleListFood(list: List<Food>?) {
@@ -38,7 +39,8 @@ fun RecyclerView.setRecycleSelectFood(list: List<Food>?) {
 @BindingAdapter("setNutriment")
 fun TextView.setTextViewDouble(value: Double?) {
     value.let {
-        this.text = "$value g"
+        val form = DecimalFormat("#.##")
+        this.text = "${form.format(value)} g"
     }
 }
 
@@ -52,7 +54,8 @@ fun TextView.setTextView(newText: String?) {
 @BindingAdapter("doubleNumber")
 fun TextView.setDoubleNumber(value: Double?) {
     value?.let {
-        this.text = it.toString()
+        val form = DecimalFormat("#.##")
+        this.text = form.format(value)
     }
 }
 
