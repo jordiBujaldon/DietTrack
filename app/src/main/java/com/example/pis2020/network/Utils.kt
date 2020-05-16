@@ -9,24 +9,24 @@ import com.example.pis2020.network.model.NetworkProduct
 
 fun NetworkNutriments.asDomainModel(): Nutriments {
     return Nutriments(
-        salt = salt,
-        carbonHydrate = carbonHydrate,
-        fat = fat,
-        saturatedFat = saturatedFat,
-        proteins = proteins,
-        energy = energy,
-        sugars = sugars,
-        sodium = sodium
+        salt = salt!!,
+        carbonHydrate = carbonHydrate!!,
+        fat = fat!!,
+        saturatedFat = saturatedFat!!,
+        proteins = proteins!!,
+        energy = energy!!,
+        sugars = sugars!!,
+        sodium = sodium!!
     )
 }
 
 fun NetworkProduct.asDomainModel(): Product {
     return Product(
-        image = image,
-        name = name,
-        quantity = quantity,
-        ingredients = ingredients,
-        nutriments = nutriments.asDomainModel()
+        image = image!!,
+        name = name!!,
+        quantity = quantity!!,
+        ingredients = ingredients!!,
+        nutriments = nutriments!!.asDomainModel()
     )
 }
 
@@ -34,6 +34,6 @@ fun NetworkFood.asDatabaseModel(id: String): EntityFood {
     return EntityFood(
         user_id = id,
         status = status,
-        product = product.asDomainModel()
+        product = product!!.asDomainModel()
     )
 }

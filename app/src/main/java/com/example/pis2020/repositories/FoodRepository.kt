@@ -2,6 +2,7 @@ package com.example.pis2020.repositories
 
 import android.app.Application
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 
 import com.example.pis2020.database.DietTrackDatabase
@@ -31,12 +32,21 @@ class FoodRepository(val application: Application) {
             list.asDomainModel()
     }
 
+    private var _showSnackbar = MutableLiveData<Boolean>()
+    val showSnackbar: LiveData<Boolean>
+        get() = _showSnackbar
+
     suspend fun saveFoodWithBarcode(barcode: String) {
         withContext(Dispatchers.IO) {
             val networkFood: NetworkFood = OpenFoodApi.retorfitService.getFood(barcode).await()
-            val entityFood: EntityFood = networkFood.asDatabaseModel(id!!)
-            db.collection("food-list").document(barcode).set(entityFood)
-            foodDao.insert(entityFood)
+            if (networkFood.status == 1) {
+                val entityFood: EntityFood = networkFood.asDatabaseModel(id!!)
+                db.collection("food-list").document(barcode).set(entityFood)
+                foodDao.insert(entityFood)
+                _showSnackbar.postValue(false)
+            } else {
+                _showSnackbar.postValue(true)
+            }
         }
     }
 

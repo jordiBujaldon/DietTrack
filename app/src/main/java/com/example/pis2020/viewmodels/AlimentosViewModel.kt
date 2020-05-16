@@ -24,6 +24,8 @@ class AlimentosViewModel(application: Application) : AndroidViewModel(applicatio
     val navigateToFoodItem: LiveData<Food>
         get() = _navigateToFoodItem
 
+    val showSnackbar = repository.showSnackbar
+
     fun saveScannedFood(barcode: String) {
         viewModelScope.launch {
             repository.saveFoodWithBarcode(barcode)

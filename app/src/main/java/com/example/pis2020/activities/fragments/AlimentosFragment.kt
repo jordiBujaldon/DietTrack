@@ -18,6 +18,7 @@ import com.example.pis2020.activities.MainActivity
 import com.example.pis2020.activities.utils.adapters.FoodListAdapter
 import com.example.pis2020.databinding.FragmentAlimentosBinding
 import com.example.pis2020.viewmodels.AlimentosViewModel
+import com.google.android.material.snackbar.Snackbar
 import java.lang.Exception
 
 class AlimentosFragment : Fragment() {
@@ -27,17 +28,13 @@ class AlimentosFragment : Fragment() {
             AlimentosViewModel.Factory(requireActivity().application))
             .get(AlimentosViewModel::class.java)
     }
+    private lateinit var binding: FragmentAlimentosBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentAlimentosBinding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_alimentos,
-            container,
-            false
-        )
+        binding = FragmentAlimentosBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
@@ -73,6 +70,12 @@ class AlimentosFragment : Fragment() {
                     AlimentosFragmentDirections.actionAlimentosFragmentToPuntuacionFragment(it)
                 )
                 viewModel.navigateToFoodItemDone()
+            }
+        })
+
+        viewModel.showSnackbar.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
+                Snackbar.make(binding.root, "Producto no encontrado", Snackbar.LENGTH_LONG).show()
             }
         })
         

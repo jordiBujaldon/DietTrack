@@ -4,13 +4,13 @@ import com.squareup.moshi.Json
 
 data class NetworkProduct(
     @Json(name = "image_url")
-    var image: String,
+    var image: String? = null,
 
     @Json(name = "product_name")
-    var name: String,
+    var name: String? = null,
 
     @Json(name = "quantity")
-    var quantity: String = "",
+    var quantity: String? = null,
 
     /*
     @Json(name = "nutriments")
@@ -18,12 +18,12 @@ data class NetworkProduct(
      */
 
     @Json(name = "ingredients_text")
-    var ingredients: String = "",
+    var ingredients: String? = null,
 
     /*
     @Json(name = "popularity_tags")
     val tags: ??
      */
     @Json(name = "nutriments")
-    var nutriments: NetworkNutriments
+    var nutriments: NetworkNutriments? = null
 )

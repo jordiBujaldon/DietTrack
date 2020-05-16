@@ -7,5 +7,5 @@ data class NetworkFood(
     val status: Int,
 
     @Json(name = "product")
-    val product: NetworkProduct
+    val product: NetworkProduct? = null
 )
