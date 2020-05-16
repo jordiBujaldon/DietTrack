@@ -54,10 +54,10 @@ class UserRepository(application: Application) {
         }
     }
 
-    suspend fun getUser(): User {
+    suspend fun getUser(): User? {
         return withContext(Dispatchers.IO) {
             val user = userDao.getUser(auth.uid!!)?.asDomainModel()
-            user!!
+            user
         }
     }
 

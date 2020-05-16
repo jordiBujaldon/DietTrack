@@ -12,12 +12,12 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
-class DatosUsuarioViewModel(application: Application) : AndroidViewModel(application) {
+class DatosUsuarioViewModel(application: Application) : ViewModel() {
 
     private val repository = UserRepository(application)
 
     private val viewModelJob = SupervisorJob()
-    private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.IO)
+    private val viewModelScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     fun createAccount(id: String, email: String, password: String, username: String, age: String,
                       height: String, weight: String) {
@@ -25,6 +25,11 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
             repository.createAccount(id, email, password, username, age.toInt(), height.toDouble(),
                 weight.toDouble())
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
     }
 
     class Factory(private val application: Application) : ViewModelProvider.Factory {

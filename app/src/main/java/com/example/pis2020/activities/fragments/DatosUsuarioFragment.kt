@@ -29,9 +29,11 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 class DatosUsuarioFragment : Fragment() {
 
     private lateinit var binding: FragmentDatosUsuarioBinding
-    private lateinit var username: String
-    private lateinit var email: String
-    private lateinit var password: String
+    private var username: String? = null
+    private var email: String? = null
+    private var password: String? = null
+    private var id: String? = null
+    private var google: Boolean = false
 
     private val viewModel: DatosUsuarioViewModel by lazy {
         ViewModelProvider(this, DatosUsuarioViewModel.Factory(requireActivity().application))
@@ -50,9 +52,11 @@ class DatosUsuarioFragment : Fragment() {
         )
         binding.viewModel =  viewModel
 
-        username = DatosUsuarioFragmentArgs.fromBundle(arguments!!).username
-        email = DatosUsuarioFragmentArgs.fromBundle(arguments!!).email
-        password = DatosUsuarioFragmentArgs.fromBundle(arguments!!).password
+        username = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).username
+        email = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).email
+        password = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).password
+        google = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).google
+        id = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).uid
 
         return binding.root
     }
@@ -68,43 +72,58 @@ class DatosUsuarioFragment : Fragment() {
             if (!TextUtils.isEmpty(binding.inputAge.text.toString()) &&
                 !TextUtils.isEmpty(binding.inputHeight.text.toString()) &&
                 !TextUtils.isEmpty(binding.inputWeight.text.toString())){
-                // Creem el nou compte de DietTrack
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(requireActivity()) {
-                        if (it.isSuccessful) {
-                            // Creem un nou compte i el guardem a la base de dades local i tambe
-                            // a Firebase
-                            viewModel.createAccount(
-                                id = it.result?.user!!.uid,
-                                email = email,
-                                password = password,
-                                username = username,
-                                age = binding.inputAge.text.toString(),
-                                height = binding.inputHeight.text.toString(),
-                                weight = binding.inputWeight.text.toString()
-                            )
-                            // Naveguem a la part principal de l'aplicacio
-                            findNavController().navigate(
-                                DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToMainFragment()
-                            )
-                        } else {
-                            when (it.exception) {
-                                is FirebaseAuthInvalidCredentialsException -> {
-                                    Snackbar.make(binding.root, "Correo electronico no valido",
-                                        Snackbar.LENGTH_SHORT).show()
-                                }
-                                is FirebaseAuthUserCollisionException -> {
-                                    Snackbar.make(binding.root, "Este usuario ya existe",
-                                        Snackbar.LENGTH_SHORT).show()
-                                }
-                                is FirebaseAuthWeakPasswordException -> {
-                                    Snackbar.make(binding.root, "Contraseña no valida, introduce otra",
-                                        Snackbar.LENGTH_SHORT).show()
+                if (google) {
+                    viewModel.createAccount(
+                        id = id!!,
+                        email = email!!,
+                        password = password!!,
+                        username = username!!,
+                        age = binding.inputAge.text.toString(),
+                        height = binding.inputHeight.text.toString(),
+                        weight = binding.inputWeight.text.toString()
+                    )
+                    // Naveguem a la part principal de l'aplicacio
+                    findNavController().navigate(
+                        DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToMainFragment()
+                    )
+                } else {
+                    // Creem el nou compte de DietTrack
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email!!, password!!)
+                        .addOnCompleteListener(requireActivity()) {
+                            if (it.isSuccessful) {
+                                // Creem un nou compte i el guardem a la base de dades local i tambe
+                                // a Firebase
+                                viewModel.createAccount(
+                                    id = it.result?.user!!.uid,
+                                    email = email!!,
+                                    password = password!!,
+                                    username = username!!,
+                                    age = binding.inputAge.text.toString(),
+                                    height = binding.inputHeight.text.toString(),
+                                    weight = binding.inputWeight.text.toString()
+                                )
+                                // Naveguem a la part principal de l'aplicacio
+                                findNavController().navigate(
+                                    DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToMainFragment()
+                                )
+                            } else {
+                                when (it.exception) {
+                                    is FirebaseAuthInvalidCredentialsException -> {
+                                        Snackbar.make(binding.root, "Correo electronico no valido",
+                                            Snackbar.LENGTH_SHORT).show()
+                                    }
+                                    is FirebaseAuthUserCollisionException -> {
+                                        Snackbar.make(binding.root, "Este usuario ya existe",
+                                            Snackbar.LENGTH_SHORT).show()
+                                    }
+                                    is FirebaseAuthWeakPasswordException -> {
+                                        Snackbar.make(binding.root, "Contraseña no valida, introduce otra",
+                                            Snackbar.LENGTH_SHORT).show()
+                                    }
                                 }
                             }
                         }
-                    }
-
+                }
             } else {
                 // TODO(Marcar en vermell els camps que no s'han omplert correctament)
             }

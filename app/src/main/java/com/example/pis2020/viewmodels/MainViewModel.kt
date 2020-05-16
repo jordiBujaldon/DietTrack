@@ -51,6 +51,11 @@ class MainViewModel(application: Application) : ViewModel() {
         }
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
+
     class Factory(private val application: Application) : ViewModelProvider.Factory {
         /**
          * Creates a new instance of the given `Class`.

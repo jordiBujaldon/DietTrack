@@ -33,27 +33,6 @@
                 android:text="@string/menu_puntuacion" />
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/al_veshion_personaluseonly"
-                android:textColor="#BF000000"
-                android:textSize="35sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titulo_puntuacion"
-                tools:text="8.5" />
-
-            <RatingBar
-                android:id="@+id/diet_rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-            <TextView
                 android:id="@+id/texto_proteinas"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -68,7 +47,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/resultado_proteinas"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/diet_rating" />
+                app:layout_constraintTop_toBottomOf="@+id/titulo_puntuacion" />
 
             <TextView
                 android:id="@+id/texto_hidratos_carbono"
