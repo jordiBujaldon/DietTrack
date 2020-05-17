@@ -40,12 +40,12 @@ class MainViewModel(application: Application) : ViewModel() {
     fun addFoodData(food: Food) {
         viewModelScope.launch {
             val user = _user.value!!
-            user.hidratsCarb += food.product.nutriments.carbonHydrate
-            user.fats += food.product.nutriments.fat
-            user.proteins += food.product.nutriments.proteins
-            user.saturedFats += food.product.nutriments.saturatedFat
-            user.sodium += food.product.nutriments.sodium
-            user.sugars += food.product.nutriments.sugars
+            user.hidratsCarb += food.product!!.nutriments!!.carbonHydrate!!
+            user.fats += food.product.nutriments!!.fat!!
+            user.proteins += food.product.nutriments.proteins!!
+            user.saturedFats += food.product.nutriments.saturatedFat!!
+            user.sodium += food.product.nutriments.sodium!!
+            user.sugars += food.product.nutriments.sugars!!
 
             userRepository.updateUser(user)
         }

@@ -24,8 +24,8 @@ fun NetworkProduct.asDomainModel(): Product {
     return Product(
         image = image!!,
         name = name!!,
-        quantity = quantity!!,
-        ingredients = ingredients!!,
+        quantity = quantity,
+        ingredients = ingredients,
         nutriments = nutriments!!.asDomainModel()
     )
 }

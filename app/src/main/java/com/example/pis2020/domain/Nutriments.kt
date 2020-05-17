@@ -5,19 +5,19 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Nutriments(
-    val salt: Double,
+    val salt: Double?,
 
-    val carbonHydrate: Double,
+    val carbonHydrate: Double?,
 
-    val fat: Double,
+    val fat: Double?,
 
-    val saturatedFat: Double,
+    val saturatedFat: Double?,
 
-    val proteins: Double,
+    val proteins: Double?,
 
-    val energy: Double,
+    val energy: Double?,
 
-    val sugars: Double,
+    val sugars: Double?,
 
-    val sodium: Double
+    val sodium: Double?
 ) : Parcelable
