@@ -12,6 +12,7 @@ import com.example.pis2020.domain.asDatabaseModel
 import com.example.pis2020.domain.asDomainModel
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 
 import kotlinx.coroutines.Dispatchers
@@ -46,14 +47,6 @@ class UserRepository(application: Application) {
         }
     }
 
-    suspend fun checkSignedUser(user: User) {
-        if (userDao.getUser(auth.uid!!) != null) {
-            withContext(Dispatchers.IO) {
-                userDao.insert(user.asDatabaseModel())
-            }
-        }
-    }
-
     suspend fun getUser(): User? {
         return withContext(Dispatchers.IO) {
             val user = userDao.getUser(auth.uid!!)?.asDomainModel()
@@ -66,6 +59,19 @@ class UserRepository(application: Application) {
             val entity: EntityUser = user.asDatabaseModel()
             userDao.update(entity)
             // TODO(Actualitzar a firebase)
+        }
+    }
+
+    suspend fun loadFromDatabase(user: User): User? {
+        return withContext(Dispatchers.IO) {
+            val newUser = userDao.getUser(user.id!!)?.asDomainModel()
+            newUser
+        }
+    }
+
+    suspend fun saveUser(user: User) {
+        withContext(Dispatchers.IO) {
+            userDao.insert(user.asDatabaseModel())
         }
     }
 

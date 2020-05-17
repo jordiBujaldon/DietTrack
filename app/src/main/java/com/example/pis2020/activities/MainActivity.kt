@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity() {
             } else {
                 binding.bottomNavigation.visibility = View.GONE
             }
+            if (destination.id == R.id.mainFragment) {
+                binding.bottomNavigation.selectedItemId = R.id.mainFragment
+            }
         }
 
         // Cada vez que el usuario cambie de navegacion con el menu, cambiamos de fragment

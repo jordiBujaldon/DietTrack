@@ -3,13 +3,22 @@ package com.example.pis2020.viewmodels
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.pis2020.activities.utils.FirebaseUserLiveData
+import com.example.pis2020.domain.User
 import com.example.pis2020.repositories.UserRepository
+import com.google.firebase.auth.FirebaseUser
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class EnterViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: UserRepository =
         UserRepository(application)
+
+    private val viewModelJob = SupervisorJob()
+    private val viewModelScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     val userLiveData: FirebaseUserLiveData = repository.liveUser
 
@@ -20,6 +29,10 @@ class EnterViewModel(application: Application) : AndroidViewModel(application) {
     private var _navigateToSignup = MutableLiveData<Boolean>()
     val navigateToSignup: LiveData<Boolean>
         get() = _navigateToSignup
+
+    private var _user = MutableLiveData<User>()
+    val user: LiveData<User>
+        get() = _user
 
     fun navigateToSignin() {
         _navigateToSignin.value = true

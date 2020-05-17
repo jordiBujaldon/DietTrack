@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 
 import com.example.pis2020.R
 import com.example.pis2020.databinding.FragmentPerfilBinding
 import com.example.pis2020.viewmodels.PerfilViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 //import com.example.pis2020.databinding.FragmentPerfilB
 
@@ -43,7 +45,24 @@ class PerfilFragment : Fragment() {
             }
         })
 
+        binding.logOutButton.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            viewModel.navigateToEnterFragment()
+        }
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        viewModel.navigaetToEnterFragment.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
+                findNavController().navigate(
+                    PerfilFragmentDirections.actionPerfilFragmentToEnterFragment()
+                )
+                viewModel.navigateToEnterFragmentComplete()
+            }
+        })
     }
     
 }

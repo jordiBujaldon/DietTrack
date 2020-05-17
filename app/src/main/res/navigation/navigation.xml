@@ -82,7 +82,12 @@
     <fragment
         android:id="@+id/perfilFragment"
         android:name="com.example.pis2020.activities.fragments.PerfilFragment"
-        android:label="PerfilFragment" />
+        android:label="PerfilFragment" >
+        <action
+            android:id="@+id/action_perfilFragment_to_enterFragment"
+            app:destination="@id/enterFragment"
+            app:popUpTo="@+id/enterFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signinFragment"
         android:name="com.example.pis2020.activities.fragments.SigninFragment"

@@ -20,6 +20,7 @@ import com.example.pis2020.R
 import com.example.pis2020.databinding.FragmentEnterBinding
 import com.example.pis2020.viewmodels.EnterViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass.
@@ -30,13 +31,14 @@ class EnterFragment : Fragment() {
         ViewModelProvider(this, EnterViewModel.Factory(requireActivity().application))
             .get(EnterViewModel::class.java)
     }
+    private lateinit var binding: FragmentEnterBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Variable que hace referencia a todas las Views de fragment_enter.xml
-        val binding: FragmentEnterBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_enter,
             container,
@@ -69,6 +71,20 @@ class EnterFragment : Fragment() {
 
         // Naveguem a la pantalla principal de l'app si l'usuari ja esta guardat
         // a l'aplicacio
+        /*
+        viewModel.userLiveData.observe(viewLifecycleOwner, Observer { user ->
+            if (user != null) {
+                viewModel.loadUser(user)
+                if (viewModel.user.value != null) {
+                    findNavController().navigate(
+                        EnterFragmentDirections.actionEnterFragmentToMainFragment()
+                    )
+                } else {
+                    Snackbar.make(binding.root, "Inicia sessión para entrar", Snackbar.LENGTH_SHORT).show()
+                }
+            }
+        })
+         */
         viewModel.userLiveData.observe(viewLifecycleOwner, Observer { user ->
             if (user != null) {
                 findNavController().navigate(

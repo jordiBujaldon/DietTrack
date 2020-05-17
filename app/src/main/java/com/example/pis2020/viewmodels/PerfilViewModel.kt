@@ -24,6 +24,10 @@ class PerfilViewModel(application: Application) : ViewModel() {
     val user: LiveData<User>
         get() = _user
 
+    private var _navigateToEnterFragment = MutableLiveData<Boolean>()
+    val navigaetToEnterFragment: LiveData<Boolean>
+        get() = _navigateToEnterFragment
+
     init {
         getUser()
     }
@@ -32,6 +36,14 @@ class PerfilViewModel(application: Application) : ViewModel() {
         viewModelScope.launch {
             _user.value = repository.getUser()
         }
+    }
+
+    fun navigateToEnterFragment() {
+        _navigateToEnterFragment.value = true
+    }
+
+    fun navigateToEnterFragmentComplete() {
+        _navigateToEnterFragment.value = false
     }
 
     class Factory(private val application: Application) : ViewModelProvider.Factory {

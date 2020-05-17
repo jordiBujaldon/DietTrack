@@ -22,6 +22,7 @@ import com.example.pis2020.viewmodels.SignInViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -84,6 +85,20 @@ class SigninFragment : Fragment() {
             activity?.onBackPressed()
         }
 
+        // [START config_signin]
+        // Configure Google Sign In
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        // [END config_signin]
+
+        googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
+
+        // [START initialize_auth]
+        // Initialize Firebase Auth
+        auth = FirebaseAuth.getInstance()
+
         return binding.root
     }
 
@@ -92,6 +107,10 @@ class SigninFragment : Fragment() {
 
         viewModel.navigateToMainContent.observe(viewLifecycleOwner, Observer {
             if (it == true) {
+                FirebaseFirestore.getInstance().collection("users").document(auth.currentUser!!.email!!).get().addOnSuccessListener {doc ->
+                    val user = doc.toObject(User::class.java)
+                    viewModel.checkSignedUser(user!!)
+                }
                 findNavController().navigate(
                     SigninFragmentDirections.actionSigninFragmentToMainFragment()
                 )

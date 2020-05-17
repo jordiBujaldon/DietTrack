@@ -3,7 +3,10 @@ package com.example.pis2020.viewmodels
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.pis2020.domain.User
+import com.example.pis2020.domain.asDatabaseModel
 import com.example.pis2020.repositories.UserRepository
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -17,9 +20,15 @@ class SignInViewModel(application: Application) : AndroidViewModel(application) 
     private val viewModelJob = SupervisorJob()
     private val viewModelScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+
     private var _navigateToMainContent = MutableLiveData<Boolean>()
     val navigateToMainContent: LiveData<Boolean>
         get() = _navigateToMainContent
+
+    private var _user = MutableLiveData<User>()
+    val user: LiveData<User>
+        get() = _user
 
     fun navigateToMainContent() {
         _navigateToMainContent.value = true
@@ -31,7 +40,10 @@ class SignInViewModel(application: Application) : AndroidViewModel(application) 
 
     fun checkSignedUser(user: User) {
         viewModelScope.launch {
-            repository.checkSignedUser(user)
+            val newUser = repository.loadFromDatabase(user)
+            if (newUser == null) {
+                repository.saveUser(user)
+            }
         }
     }
 
