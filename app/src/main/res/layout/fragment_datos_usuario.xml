@@ -138,6 +138,17 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/boton_cancelar_datos_usuarios"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <ImageView
+            android:id="@+id/boton_seleccion_fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/layout_texto_fecha"
+            app:layout_constraintStart_toEndOf="@id/layout_texto_fecha"
+            app:layout_constraintTop_toTopOf="@id/layout_texto_fecha"
+            app:srcCompat="@drawable/ic_calendar" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

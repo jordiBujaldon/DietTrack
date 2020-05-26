@@ -1,6 +1,9 @@
 package com.example.pis2020.activities.fragments
 
 
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -8,6 +11,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.DatePicker
 import android.widget.Toast
 
 import androidx.databinding.DataBindingUtil
@@ -22,6 +27,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import java.text.DateFormat
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -40,6 +47,7 @@ class DatosUsuarioFragment : Fragment() {
             .get(DatosUsuarioViewModel::class.java)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,6 +66,17 @@ class DatosUsuarioFragment : Fragment() {
         google = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).google
         id = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).uid
 
+        binding.botonSeleccionFecha.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            val datePicker = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+                binding.inputAge.setText("$dayOfMonth/${month + 1}/$year")
+            }, year, month, day).show()
+        }
+
         return binding.root
     }
 
@@ -69,6 +88,7 @@ class DatosUsuarioFragment : Fragment() {
         }
 
         binding.botonContinuarDatosUsuarios.setOnClickListener {
+            closeKeyboard()
             if (!TextUtils.isEmpty(binding.inputAge.text.toString()) &&
                 !TextUtils.isEmpty(binding.inputHeight.text.toString()) &&
                 !TextUtils.isEmpty(binding.inputWeight.text.toString())){
@@ -128,6 +148,15 @@ class DatosUsuarioFragment : Fragment() {
                 // TODO(Marcar en vermell els camps que no s'han omplert correctament)
             }
         }
+    }
+
+    private fun closeKeyboard() {
+        val view: View? = activity?.currentFocus
+        view.let {
+            val inputManager: InputMethodManager =
+                activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(view?.windowToken, 0)
+        }  
     }
 
 }

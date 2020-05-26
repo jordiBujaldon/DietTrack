@@ -30,7 +30,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@string/menu_puntuacion" />
+                android:text="@string/titulo_puntuacion" />
 
             <TextView
                 android:id="@+id/texto_proteinas"
