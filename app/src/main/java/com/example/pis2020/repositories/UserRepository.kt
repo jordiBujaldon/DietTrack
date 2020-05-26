@@ -38,7 +38,7 @@ class UserRepository(application: Application) {
      * Firebase.
      */
     suspend fun createAccount(id: String, email: String, password: String, username: String,
-                              age: Int, height: Double, weight: Double) {
+                              age: String, height: Double, weight: Double) {
         withContext(Dispatchers.IO) {
             val user = User(id, email, password, username, age, height, weight, 0.0,
                 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)

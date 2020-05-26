@@ -20,7 +20,7 @@ data class EntityUser(
     val username: String,
 
     @ColumnInfo(name = "edad")
-    val age: Int,
+    val age: String,
 
     @ColumnInfo(name = "altura")
     val height: Double,

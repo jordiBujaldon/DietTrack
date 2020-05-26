@@ -22,7 +22,7 @@ class DatosUsuarioViewModel(application: Application) : ViewModel() {
     fun createAccount(id: String, email: String, password: String, username: String, age: String,
                       height: String, weight: String) {
         viewModelScope.launch {
-            repository.createAccount(id, email, password, username, age.toInt(), height.toDouble(),
+            repository.createAccount(id, email, password, username, age, height.toDouble(),
                 weight.toDouble())
         }
     }

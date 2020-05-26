@@ -20,7 +20,7 @@ fun FirebaseUser.asDomainModel(): User {
         email = email!!,
         password = "",
         username = "",
-        age = 0,
+        age = "",
         height = 0.0,
         weight = 0.0,
         calories = 0.0,

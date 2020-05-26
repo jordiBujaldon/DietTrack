@@ -9,7 +9,7 @@ data class User(
 
     val username: String? = null,
 
-    val age: Int? = null,
+    val age: String? = null,
 
     val height: Double? = null,
 
