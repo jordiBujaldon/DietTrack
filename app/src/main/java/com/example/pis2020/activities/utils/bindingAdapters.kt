@@ -61,15 +61,17 @@ fun TextView.setDoubleNumber(value: Double?) {
 
 @BindingAdapter("setImage")
 fun ImageView.setImageView(url: String?) {
-    url?.let {
+    if (url != null) {
         // Convertim la imatge de URL a URI
         // Ens assegurem que l'URL sigui de tipus HTTPS ja que el servidor Back-End
         // d'on estem agafant les dades es de tipus HTTPS
-        val imgUri = it.toUri().buildUpon().scheme("https").build()
+        val imgUri = url.toUri().buildUpon().scheme("https").build()
 
         // Convertim la imatge URI a ImageView
         Glide.with(context)
             .load(imgUri)
             .into(this)
+    } else {
+
     }
 }

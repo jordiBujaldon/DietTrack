@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PIS2020</string>
+    <string name="app_name">DietTrack</string>
     <string name="boto_entrar">Iniciar sesion</string>
     <string name="boton_registrar">Registrarse</string>
     <string name="texto_registrarse">Registrate a </string>
@@ -89,4 +89,9 @@
     <string name="titulo_seleccion_alimentos">Lista de alimentos escaneados</string>
     <string name="boton_texto_mostrar_grafico">Mostrar gráfico</string>
     <string name="titulo_puntuacion">Puntuación diaria</string>
+    <string name="cerrar_sesion_boton">Cerrar sesión</string>
+    <string name="texto_correo_electronico">Correo electrónico</string>
+    <string name="fecha_de_nacimiento_texto">Fecha de nacimiento</string>
+    <string name="altura_texto">Altura</string>
+    <string name="peso_texto">Peso</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.pis2020.database.entities
 
+import android.net.Uri
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -27,6 +28,9 @@ data class EntityUser(
 
     @ColumnInfo(name = "peso")
     val weight: Double,
+
+    @ColumnInfo(name = "photo")
+    val photo: String,
 
     @ColumnInfo(name = "total_calories")
     val calories: Double,

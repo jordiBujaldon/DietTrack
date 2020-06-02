@@ -1,6 +1,7 @@
 package com.example.pis2020.viewmodels
 
 import android.app.Application
+import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -20,10 +21,10 @@ class DatosUsuarioViewModel(application: Application) : ViewModel() {
     private val viewModelScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     fun createAccount(id: String, email: String, password: String, username: String, age: String,
-                      height: String, weight: String) {
+                      height: String, weight: String, photo: String) {
         viewModelScope.launch {
             repository.createAccount(id, email, password, username, age, height.toDouble(),
-                weight.toDouble())
+                weight.toDouble(), photo)
         }
     }
 

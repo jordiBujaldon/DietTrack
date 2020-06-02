@@ -1,5 +1,7 @@
 package com.example.pis2020.domain
 
+import android.net.Uri
+
 data class User(
     val id: String? = null,
 
@@ -14,6 +16,8 @@ data class User(
     val height: Double? = null,
 
     val weight: Double? = null,
+
+    val photo: String? = null,
 
     val calories: Double? = null,
 

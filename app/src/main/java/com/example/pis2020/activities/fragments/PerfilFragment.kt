@@ -1,6 +1,7 @@
 package com.example.pis2020.activities.fragments
 
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -45,9 +46,14 @@ class PerfilFragment : Fragment() {
             }
         })
 
-        binding.logOutButton.setOnClickListener {
+        binding.botonCerrarSesion.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             viewModel.navigateToEnterFragment()
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            binding.segundaParteLayout.background = context?.getDrawable(R.drawable.profile_layout_shape_background)
+            binding.segundaParteLayout.elevation = context?.resources?.getDimension(R.dimen.profile_layout_elevation)!!
         }
         return binding.root
     }

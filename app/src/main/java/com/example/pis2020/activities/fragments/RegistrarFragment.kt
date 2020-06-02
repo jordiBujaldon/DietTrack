@@ -103,7 +103,8 @@ class RegistrarFragment : Fragment() {
                         password = binding.inputContrasena.text.toString(),
                         username = binding.inputNombreUsuario.text.toString(),
                         google = false,
-                        uid = ""
+                        uid = "",
+                        photo = ""
                     )
                 )
                 viewModel.navigateToUserDataEmailComplete()
@@ -117,7 +118,8 @@ class RegistrarFragment : Fragment() {
                         password = "",
                         username = it.displayName!!,
                         google = true,
-                        uid = it.uid
+                        uid = it.uid,
+                        photo = it.photoUrl.toString()
                     )
                 )
                 viewModel.navigateToUserDataGoogleComplete()

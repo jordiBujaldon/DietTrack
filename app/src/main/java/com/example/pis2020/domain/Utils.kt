@@ -42,13 +42,14 @@ fun User.asDatabaseModel(): EntityUser {
         age = age!!,
         height = height!!,
         weight = weight!!,
+        photo = photo!!,
         calories = calories!!,
-        hidratsCarb = hidratsCarb!!,
-        proteins = proteins!!,
-        sugars = sugars!!,
-        fats = fats!!,
-        saturedFats = saturedFats!!,
-        sodium = sodium!!
+        hidratsCarb = hidratsCarb,
+        proteins = proteins,
+        sugars = sugars,
+        fats = fats,
+        saturedFats = saturedFats,
+        sodium = sodium
     )
 }
 
@@ -61,6 +62,7 @@ fun EntityUser.asDomainModel(): User {
         age = age,
         height = height,
         weight = weight,
+        photo = photo,
         calories = calories,
         hidratsCarb = hidratsCarb,
         proteins = proteins,

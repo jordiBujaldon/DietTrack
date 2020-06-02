@@ -41,6 +41,7 @@ class DatosUsuarioFragment : Fragment() {
     private var password: String? = null
     private var id: String? = null
     private var google: Boolean = false
+    private var photo: String? = null
 
     private val viewModel: DatosUsuarioViewModel by lazy {
         ViewModelProvider(this, DatosUsuarioViewModel.Factory(requireActivity().application))
@@ -65,6 +66,7 @@ class DatosUsuarioFragment : Fragment() {
         password = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).password
         google = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).google
         id = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).uid
+        photo = DatosUsuarioFragmentArgs.fromBundle(requireArguments()).photo
 
         binding.botonSeleccionFecha.setOnClickListener {
             val calendar = Calendar.getInstance()
@@ -72,7 +74,7 @@ class DatosUsuarioFragment : Fragment() {
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-            val datePicker = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+            DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
                 binding.inputAge.setText("$dayOfMonth/${month + 1}/$year")
             }, year, month, day).show()
         }
@@ -100,7 +102,8 @@ class DatosUsuarioFragment : Fragment() {
                         username = username!!,
                         age = binding.inputAge.text.toString(),
                         height = binding.inputHeight.text.toString(),
-                        weight = binding.inputWeight.text.toString()
+                        weight = binding.inputWeight.text.toString(),
+                        photo = photo!!
                     )
                     // Naveguem a la part principal de l'aplicacio
                     findNavController().navigate(
@@ -120,7 +123,8 @@ class DatosUsuarioFragment : Fragment() {
                                     username = username!!,
                                     age = binding.inputAge.text.toString(),
                                     height = binding.inputHeight.text.toString(),
-                                    weight = binding.inputWeight.text.toString()
+                                    weight = binding.inputWeight.text.toString(),
+                                    photo = ""
                                 )
                                 // Naveguem a la part principal de l'aplicacio
                                 findNavController().navigate(
@@ -156,7 +160,7 @@ class DatosUsuarioFragment : Fragment() {
             val inputManager: InputMethodManager =
                 activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputManager.hideSoftInputFromWindow(view?.windowToken, 0)
-        }  
+        }
     }
 
 }

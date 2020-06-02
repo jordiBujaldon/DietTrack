@@ -74,6 +74,10 @@
             android:name="uid"
             app:argType="string"
             app:nullable="true" />
+        <argument
+            android:name="photo"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"

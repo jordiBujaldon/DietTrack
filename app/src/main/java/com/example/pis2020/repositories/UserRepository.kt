@@ -1,6 +1,7 @@
 package com.example.pis2020.repositories
 
 import android.app.Application
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 
@@ -38,9 +39,9 @@ class UserRepository(application: Application) {
      * Firebase.
      */
     suspend fun createAccount(id: String, email: String, password: String, username: String,
-                              age: String, height: Double, weight: Double) {
+                              age: String, height: Double, weight: Double, photo: String) {
         withContext(Dispatchers.IO) {
-            val user = User(id, email, password, username, age, height, weight, 0.0,
+            val user = User(id, email, password, username, age, height, weight, photo,0.0,
                 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
             userDao.insert(user.asDatabaseModel())
             db.collection("users").document(email).set(user)
