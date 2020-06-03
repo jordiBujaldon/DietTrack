@@ -30,6 +30,14 @@
                 tools:src="@tools:sample/avatars"
                 setImage="@{user.photo}"/>
 
+            <ImageView
+                android:id="@+id/boton_editar_foto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+                app:layout_constraintStart_toEndOf="@+id/profile_image"
+                app:srcCompat="@drawable/ic_edit" />
+
             <TextView
                 android:id="@+id/username_text"
                 android:layout_width="wrap_content"
