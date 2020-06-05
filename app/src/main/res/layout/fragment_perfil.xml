@@ -30,14 +30,6 @@
                 tools:src="@tools:sample/avatars"
                 setImage="@{user.photo}"/>
 
-            <ImageView
-                android:id="@+id/boton_editar_foto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/profile_image"
-                app:layout_constraintStart_toEndOf="@+id/profile_image"
-                app:srcCompat="@drawable/ic_edit" />
-
             <TextView
                 android:id="@+id/username_text"
                 android:layout_width="wrap_content"
@@ -134,6 +126,20 @@
                     doubleNumber="@{user.weight}" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/boton_cambiarfoto"
+                android:layout_width="49dp"
+                android:layout_height="27dp"
+                android:layout_marginTop="96dp"
+                android:layout_marginEnd="129dp"
+                android:layout_marginRight="129dp"
+                android:text="Button"
+                app:icon="@android:drawable/ic_menu_edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/profile_image"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
