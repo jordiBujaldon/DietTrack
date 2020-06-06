@@ -12,6 +12,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.pis2020.databinding.FragmentPuntuacionAlimentoBinding
 import com.example.pis2020.domain.Food
 import com.example.pis2020.viewmodels.PuntuacionAlimentoViewModel
+import com.google.android.material.transition.MaterialArcMotion
+import com.google.android.material.transition.MaterialContainerTransform
 
 class PuntuacionAlimentoFragment : Fragment() {
 
@@ -24,7 +26,7 @@ class PuntuacionAlimentoFragment : Fragment() {
             .inflate(inflater)
         binding.lifecycleOwner = this
 
-        val food: Food = PuntuacionAlimentoFragmentArgs.fromBundle(arguments!!).food
+        val food: Food = PuntuacionAlimentoFragmentArgs.fromBundle(requireArguments()).food
         val viewModel: PuntuacionAlimentoViewModel =
             ViewModelProvider(this, PuntuacionAlimentoViewModel.Factory(food))
             .get(PuntuacionAlimentoViewModel::class.java)
@@ -47,7 +49,7 @@ class PuntuacionAlimentoFragment : Fragment() {
                 )
             }
         }
-        activity?.onBackPressedDispatcher?.addCallback(this, callback)
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         return binding.root
     }

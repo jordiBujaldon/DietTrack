@@ -17,7 +17,7 @@ data class User(
 
     val weight: Double? = null,
 
-    val photo: String? = null,
+    var photo: String? = null,
 
     val calories: Double? = null,
 

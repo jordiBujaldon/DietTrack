@@ -1,17 +1,23 @@
 package com.example.pis2020.activities.fragments
 
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AbsListView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 
 import com.example.pis2020.R
 import com.example.pis2020.activities.MainActivity
@@ -19,6 +25,7 @@ import com.example.pis2020.activities.utils.adapters.FoodListAdapter
 import com.example.pis2020.databinding.FragmentAlimentosBinding
 import com.example.pis2020.viewmodels.AlimentosViewModel
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.transition.Hold
 import java.lang.Exception
 
 class AlimentosFragment : Fragment() {
@@ -29,6 +36,7 @@ class AlimentosFragment : Fragment() {
             .get(AlimentosViewModel::class.java)
     }
     private lateinit var binding: FragmentAlimentosBinding
+    private lateinit var adapter: FoodListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,9 +46,11 @@ class AlimentosFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        binding.recycleviewFoodlist.adapter = FoodListAdapter(FoodListAdapter.OnClickListener {
-            viewModel.navigateToFoodItem(it)
+
+        adapter = FoodListAdapter(FoodListAdapter.OnClickListener { food ->
+            viewModel.navigateToFoodItem(food)
         })
+        binding.recycleviewFoodlist.adapter = adapter
 
         return binding.root
     }

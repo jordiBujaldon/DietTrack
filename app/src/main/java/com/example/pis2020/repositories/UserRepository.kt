@@ -60,6 +60,7 @@ class UserRepository(application: Application) {
             val entity: EntityUser = user.asDatabaseModel()
             userDao.update(entity)
             // TODO(Actualitzar a firebase)
+            db.collection("users").document(user.email!!).set(user)
         }
     }
 

@@ -16,13 +16,14 @@
 
         <TextView
             android:id="@+id/titulo_seleccion_alimentos"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-black"
+            android:layout_marginTop="48dp"
+            android:gravity="center"
             android:text="@string/titulo_seleccion_alimentos"
+            android:textAppearance="?attr/textAppearanceHeadline4"
             android:textColor="@color/colorAccent"
-            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -25,7 +25,7 @@ class MainViewModel(application: Application) : ViewModel() {
 
     val scannedFoods: LiveData<List<Food>> = foodRepository.foodList
 
-    private var _user = MutableLiveData<User>()
+    var _user = MutableLiveData<User>()
 
     init {
         getUser()

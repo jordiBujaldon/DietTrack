@@ -19,13 +19,15 @@
             android:id="@+id/titulo_productos"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="24dp"
-            android:fontFamily="sans-serif-black"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
             android:text="@string/alimentos_escaneados"
-            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceHeadline4"
             android:textColor="@color/colorAccent"
-            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,19 +35,17 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_foodlist"
+            recycleListFood="@{viewModel.foodList}"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            android:padding="4dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titulo_productos"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-            tools:listitem="@layout/grid_card_item_food"
             tools:itemCount="16"
-            recycleListFood="@{viewModel.foodList}"/>
+            tools:listitem="@layout/grid_card_item_food" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/boton_escaner"
@@ -61,7 +61,7 @@
             app:rippleColor="@android:color/white"
             app:tint="@color/white"
             app:srcCompat="@drawable/ic_photo_camera"
-            android:onClick="@{() -> viewModel.navigateToCamera()}"/>
+            android:onClick="@{() -> viewModel.navigateToCamera()}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

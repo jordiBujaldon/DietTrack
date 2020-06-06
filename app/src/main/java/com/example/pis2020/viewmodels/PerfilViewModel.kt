@@ -1,6 +1,7 @@
 package com.example.pis2020.viewmodels
 
 import android.app.Application
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -35,6 +36,13 @@ class PerfilViewModel(application: Application) : ViewModel() {
     private fun getUser() {
         viewModelScope.launch {
             _user.value = repository.getUser()
+        }
+    }
+
+    fun updatePhotoUser(photo: String) {
+        viewModelScope.launch {
+            _user.value?.photo = photo
+            repository.updateUser(_user.value!!)
         }
     }
 

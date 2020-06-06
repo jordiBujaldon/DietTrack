@@ -1,6 +1,8 @@
 package com.example.pis2020.activities.utils
 
 import android.annotation.SuppressLint
+import android.os.Environment
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -9,6 +11,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.pis2020.R
 import com.example.pis2020.activities.utils.adapters.DietListAdapter
 
@@ -17,6 +20,7 @@ import com.example.pis2020.activities.utils.adapters.SelectionFoodListAdapter
 import com.example.pis2020.domain.Diet
 import com.example.pis2020.domain.Food
 import kotlinx.android.synthetic.main.fragment_perfil.view.*
+import java.io.File
 import java.text.DecimalFormat
 
 @BindingAdapter("recycleListFood")
@@ -72,6 +76,26 @@ fun ImageView.setImageView(url: String?) {
         // Convertim la imatge URI a ImageView
         Glide.with(context)
             .load(imgUri)
+            .apply(RequestOptions()
+                .placeholder(R.drawable.loading_animation)
+                .error(R.drawable.ic_broken_image))
+            .into(this)
+    } else {
+        setImageResource(R.drawable.perfilusuario)
+    }
+}
+
+@BindingAdapter("setProfileImage")
+fun ImageView.setProfileImage(image: String?) {
+    if (!image.isNullOrEmpty()) {
+        Log.i("adapters", image)
+
+        Glide.with(context)
+            .load(image.toUri())
+            .apply(
+                RequestOptions()
+                    .placeholder(R.drawable.loading_animation)
+                    .error(R.drawable.ic_broken_image))
             .into(this)
     } else {
         setImageResource(R.drawable.perfilusuario)

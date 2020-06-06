@@ -2,6 +2,7 @@ package com.example.pis2020.activities.fragments
 
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,6 +23,7 @@ import com.example.pis2020.ia.camera.GraphicOverlay
 import com.example.pis2020.ia.camera.WorkflowModel
 import com.google.android.gms.common.internal.Objects
 import com.google.android.material.chip.Chip
+import com.google.android.material.transition.platform.MaterialContainerTransform
 import java.io.IOException
 import java.util.ArrayList
 
@@ -58,9 +60,6 @@ class CameraFragment : Fragment() {
         binding.root.findViewById<View>(R.id.close_button).setOnClickListener {
             findNavController().popBackStack()
         }
-
-
-
 
         setUpWorkflowModel()
 

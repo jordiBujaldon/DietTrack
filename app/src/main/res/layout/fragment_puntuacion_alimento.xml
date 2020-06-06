@@ -34,71 +34,31 @@
                 android:id="@+id/imagen_producto"
                 setImage="@{viewModel.selectedFood.product.image}"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="300dp"
                 android:layout_marginStart="48dp"
                 android:layout_marginLeft="48dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="44dp"
                 android:layout_marginEnd="48dp"
                 android:layout_marginRight="48dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@id/nombre_producto"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
                 android:id="@+id/nombre_producto"
                 setText="@{viewModel.selectedFood.product.name}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:fontFamily="sans-serif-thin"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/progressBar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagen_producto"
                 tools:text="ColaCao El Original" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
-                android:indeterminate="false"
-                android:max="100"
-                android:progress="30"
-                android:progressBackgroundTint="@color/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/texto_evaluacion"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/texto_evaluacion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
-                android:text="Medio"
-                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/progressBar" />
-
-            <TextView
-                android:id="@+id/progreso_numero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="30/100"
-                app:layout_constraintEnd_toEndOf="@+id/progressBar"
-                app:layout_constraintStart_toStartOf="@+id/progressBar"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
             <TextView
                 android:id="@+id/informacion_nutricional_texto_titulo"
@@ -110,10 +70,8 @@
                 android:textColor="@color/black"
                 android:textSize="21sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/progressBar"
-                app:layout_constraintTop_toBottomOf="@+id/progreso_numero" />
+                app:layout_constraintStart_toEndOf="@+id/boton_atras_puntuacion_alimento"
+                app:layout_constraintTop_toBottomOf="@+id/nombre_producto" />
 
             <TextView
                 android:id="@+id/texto_valor_energetico"
@@ -182,8 +140,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
                 android:text="@string/texto_sal"
                 android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/informacion_nutricional_texto_titulo"
                 app:layout_constraintTop_toBottomOf="@+id/texto_proteinas" />
 

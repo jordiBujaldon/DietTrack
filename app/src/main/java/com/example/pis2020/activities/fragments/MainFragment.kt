@@ -14,6 +14,7 @@ import com.example.pis2020.activities.utils.adapters.SelectionFoodListAdapter
 import com.example.pis2020.databinding.FragmentMainBinding
 import com.example.pis2020.viewmodels.MainViewModel
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
 
 /**
