@@ -4,7 +4,7 @@
     <string name="boton_registrar">Registrarse</string>
     <string name="texto_registrarse">Registrate a </string>
     <string name="texto_registrarse_google">O registrate con Google</string>
-    <string name="menu_calendario">Calendario</string>
+    <string name="menu_seleccion">Selección</string>
     <string name="menu_puntuacion">Puntuacion</string>
     <string name="menu_dietas">Dietas</string>
     <string name="menu_alimentos">Alimentos</string>
@@ -85,13 +85,14 @@
     <string name="texto_sodio">Sodio</string>
     <string name="texto_calorias">Calorias</string>
     <string name="texto_seleccion">Selecciona los alimentos de la lista de alimentos escaneados para llevar el control de tus macronutrientes diarios. Cada vez que termine una comida introduzca los alimentos comidos y DietTrack mantendrá su control cada día:</string>
-    <string name="texto_hecho">Hecho</string>
-    <string name="titulo_seleccion_alimentos">Lista de alimentos escaneados</string>
+    <string name="texto_hecho">Añadir</string>
+    <string name="titulo_seleccion_alimentos">Selección de alimentos</string>
     <string name="boton_texto_mostrar_grafico">Mostrar gráfico</string>
-    <string name="titulo_puntuacion">Puntuación diaria</string>
+    <string name="titulo_puntuacion">Puntuación</string>
     <string name="cerrar_sesion_boton">Cerrar sesión</string>
     <string name="texto_correo_electronico">Correo electrónico</string>
     <string name="fecha_de_nacimiento_texto">Fecha de nacimiento</string>
     <string name="altura_texto">Altura</string>
     <string name="peso_texto">Peso</string>
+    <string name="boton_texto_restablecer_datos">Restablecer datos</string>
 </resources>

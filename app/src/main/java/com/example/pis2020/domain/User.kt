@@ -19,7 +19,7 @@ data class User(
 
     var photo: String? = null,
 
-    val calories: Double? = null,
+    var calories: Double? = null,
 
     var hidratsCarb: Double = 0.0,
 

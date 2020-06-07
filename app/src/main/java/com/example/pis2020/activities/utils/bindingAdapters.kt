@@ -76,12 +76,7 @@ fun ImageView.setImageView(url: String?) {
         // Convertim la imatge URI a ImageView
         Glide.with(context)
             .load(imgUri)
-            .apply(RequestOptions()
-                .placeholder(R.drawable.loading_animation)
-                .error(R.drawable.ic_broken_image))
             .into(this)
-    } else {
-        setImageResource(R.drawable.perfilusuario)
     }
 }
 
@@ -95,7 +90,7 @@ fun ImageView.setProfileImage(image: String?) {
             .apply(
                 RequestOptions()
                     .placeholder(R.drawable.loading_animation)
-                    .error(R.drawable.ic_broken_image))
+                    .error(R.drawable.perfilusuario))
             .into(this)
     } else {
         setImageResource(R.drawable.perfilusuario)

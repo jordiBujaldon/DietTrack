@@ -35,6 +35,7 @@ class PuntuacionFragment : Fragment() {
         val binding: FragmentPuntuacionBinding = FragmentPuntuacionBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.pieChart.visibility = View.GONE
+        binding.restablecerDatos.visibility = View.GONE
         viewModel.user.observe(viewLifecycleOwner, Observer {
             if (it != null) {
                 binding.user = it
@@ -66,6 +67,13 @@ class PuntuacionFragment : Fragment() {
         binding.mostrarGrafico.setOnClickListener {
             it.visibility = View.GONE
             binding.pieChart.visibility = View.VISIBLE
+            binding.restablecerDatos.visibility = View.VISIBLE
+        }
+        binding.restablecerDatos.setOnClickListener {
+            viewModel.resetData()
+            it.visibility = View.GONE
+            binding.mostrarGrafico.visibility = View.VISIBLE
+            binding.pieChart.visibility = View.GONE
         }
 
         return binding.root

@@ -31,6 +31,20 @@ class PuntuacioViewModel(application: Application) : ViewModel() {
         }
     }
 
+    fun resetData() {
+        viewModelScope.launch {
+            _user.value?.calories = 0.0
+            _user.value?.hidratsCarb = 0.0
+            _user.value?.proteins = 0.0
+            _user.value?.saturedFats = 0.0
+            _user.value?.fats = 0.0
+            _user.value?.sodium = 0.0
+            _user.value?.sugars = 0.0
+            repository.updateUser(_user.value!!)
+            getUser()
+        }
+    }
+
     @Suppress("UNCHECKED_CAST")
     class Factory(private val application: Application) : ViewModelProvider.Factory {
         /**

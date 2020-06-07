@@ -50,8 +50,12 @@ class UserRepository(application: Application) {
 
     suspend fun getUser(): User? {
         return withContext(Dispatchers.IO) {
-            val user = userDao.getUser(auth.uid!!)?.asDomainModel()
-            user
+            if (auth.uid == null) {
+                null
+            } else {
+                val user = userDao.getUser(auth.uid!!)?.asDomainModel()
+                user
+            }
         }
     }
 
